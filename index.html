@@ -1,0 +1,2305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ELKE STUDIO</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Noto+Sans+Georgian:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#f7f5f0;
+color:#151515;
+font-family:"Inter","Noto Sans Georgian",sans-serif;
+font-weight:300;
+}
+
+body.ka{
+font-family:"Noto Sans Georgian","Inter",sans-serif;
+}
+
+button,input,textarea{
+font-family:inherit;
+}
+
+button{
+cursor:pointer;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+
+/* HEADER */
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(247,245,240,.97);
+backdrop-filter:blur(12px);
+border-bottom:1px solid #dedbd4;
+}
+
+.nav{
+max-width:1400px;
+margin:auto;
+min-height:78px;
+padding:0 35px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+font-family:"Cormorant Garamond",serif;
+font-size:32px;
+letter-spacing:5px;
+font-weight:600;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+font-size:11px;
+letter-spacing:2px;
+}
+
+.nav-links a:hover{
+opacity:.5;
+}
+
+.nav-actions{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.nav-btn{
+border:0;
+background:none;
+font-size:11px;
+letter-spacing:1px;
+}
+
+.language{
+border:1px solid #222;
+padding:7px 10px;
+}
+
+
+/* HERO */
+
+.hero{
+min-height:700px;
+position:relative;
+display:flex;
+align-items:flex-end;
+overflow:hidden;
+}
+
+.hero img{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(.75);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+color:white;
+padding:70px;
+max-width:650px;
+}
+
+.hero-small{
+font-size:10px;
+letter-spacing:4px;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-family:"Cormorant Garamond",serif;
+font-size:78px;
+font-weight:400;
+line-height:.9;
+margin-bottom:25px;
+}
+
+.hero p{
+font-size:13px;
+line-height:1.8;
+max-width:470px;
+margin-bottom:30px;
+}
+
+.primary-btn{
+display:inline-block;
+background:white;
+color:#111;
+padding:15px 28px;
+font-size:10px;
+letter-spacing:2px;
+}
+
+.primary-btn:hover{
+background:transparent;
+color:white;
+border:1px solid white;
+}
+
+
+/* INTRO */
+
+.intro{
+max-width:950px;
+margin:auto;
+padding:120px 30px;
+text-align:center;
+}
+
+.intro-label{
+font-size:10px;
+letter-spacing:4px;
+margin-bottom:22px;
+}
+
+.intro h2{
+font-family:"Cormorant Garamond",serif;
+font-size:54px;
+font-weight:400;
+line-height:1.05;
+margin-bottom:25px;
+}
+
+.intro p{
+max-width:650px;
+margin:auto;
+font-size:13px;
+line-height:1.9;
+color:#555;
+}
+
+
+/* SHOP */
+
+.section{
+max-width:1400px;
+margin:auto;
+padding:50px 35px 120px;
+}
+
+.section-header{
+display:flex;
+justify-content:space-between;
+align-items:end;
+margin-bottom:40px;
+}
+
+.section-title{
+font-family:"Cormorant Garamond",serif;
+font-size:50px;
+font-weight:400;
+}
+
+.search{
+width:230px;
+border:0;
+border-bottom:1px solid #aaa;
+background:transparent;
+padding:10px 0;
+outline:none;
+}
+
+.filters{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:40px;
+}
+
+.filter{
+border:1px solid #ccc;
+background:transparent;
+padding:10px 18px;
+font-size:10px;
+letter-spacing:1.5px;
+}
+
+.filter.active,
+.filter:hover{
+background:#111;
+color:white;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:35px 18px;
+}
+
+.product-card{
+cursor:pointer;
+}
+
+.product-image{
+aspect-ratio:3/4;
+overflow:hidden;
+background:#e8e5df;
+position:relative;
+}
+
+.product-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.5s;
+}
+
+.product-card:hover .product-image img{
+transform:scale(1.04);
+}
+
+.wish{
+position:absolute;
+right:14px;
+top:14px;
+width:34px;
+height:34px;
+border:0;
+border-radius:50%;
+background:white;
+font-size:16px;
+}
+
+.product-info{
+padding-top:14px;
+}
+
+.product-brand{
+font-size:10px;
+letter-spacing:2px;
+color:#777;
+margin-bottom:6px;
+}
+
+.product-name{
+font-family:"Cormorant Garamond",serif;
+font-size:20px;
+margin-bottom:7px;
+}
+
+.product-price{
+font-size:12px;
+}
+
+
+/* EDITORIAL */
+
+.editorial{
+max-width:1400px;
+margin:auto;
+padding:0 35px 120px;
+}
+
+.editorial-grid{
+display:grid;
+grid-template-columns:1.3fr .7fr;
+gap:18px;
+}
+
+.editorial-card{
+position:relative;
+min-height:550px;
+overflow:hidden;
+}
+
+.editorial-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.editorial-text{
+position:absolute;
+bottom:35px;
+left:35px;
+color:white;
+}
+
+.editorial-text span{
+font-size:9px;
+letter-spacing:3px;
+}
+
+.editorial-text h3{
+font-family:"Cormorant Garamond",serif;
+font-size:42px;
+font-weight:400;
+margin-top:10px;
+}
+
+
+/* BRANDS */
+
+.brands{
+max-width:1400px;
+margin:auto;
+padding:0 35px 120px;
+}
+
+.brands-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+border-top:1px solid #d5d1c8;
+border-left:1px solid #d5d1c8;
+}
+
+.brand{
+min-height:120px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-right:1px solid #d5d1c8;
+border-bottom:1px solid #d5d1c8;
+font-family:"Cormorant Garamond",serif;
+font-size:25px;
+}
+
+.brand:hover{
+background:#111;
+color:white;
+}
+
+
+/* NEWSLETTER */
+
+.newsletter{
+background:#ebe8e1;
+padding:100px 30px;
+text-align:center;
+}
+
+.newsletter h2{
+font-family:"Cormorant Garamond",serif;
+font-size:52px;
+font-weight:400;
+margin-bottom:15px;
+}
+
+.newsletter p{
+font-size:12px;
+color:#666;
+margin-bottom:25px;
+}
+
+.newsletter-form{
+display:flex;
+max-width:420px;
+margin:auto;
+}
+
+.newsletter-form input{
+flex:1;
+padding:14px;
+border:1px solid #aaa;
+background:#f7f5f0;
+outline:none;
+}
+
+.newsletter-form button{
+border:0;
+background:#111;
+color:white;
+padding:0 22px;
+font-size:10px;
+}
+
+
+/* FOOTER */
+
+footer{
+background:#171717;
+color:white;
+padding:60px 35px 30px;
+}
+
+.footer-inner{
+max-width:1400px;
+margin:auto;
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1fr;
+gap:50px;
+}
+
+.footer-logo{
+font-family:"Cormorant Garamond",serif;
+font-size:35px;
+letter-spacing:4px;
+margin-bottom:15px;
+}
+
+.footer-description{
+max-width:300px;
+font-size:11px;
+line-height:1.8;
+color:#aaa;
+}
+
+.footer-column h4{
+font-size:10px;
+letter-spacing:2px;
+margin-bottom:20px;
+}
+
+.footer-column a{
+display:block;
+color:#aaa;
+font-size:11px;
+margin-bottom:12px;
+}
+
+.footer-bottom{
+max-width:1400px;
+margin:50px auto 0;
+padding-top:20px;
+border-top:1px solid #333;
+font-size:9px;
+color:#777;
+}
+
+
+/* MODALS */
+
+.modal{
+position:fixed;
+inset:0;
+z-index:2000;
+background:rgba(0,0,0,.55);
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+
+.modal.show{
+display:flex;
+}
+
+.modal-box{
+background:#f7f5f0;
+width:min(600px,100%);
+max-height:90vh;
+overflow:auto;
+padding:35px;
+position:relative;
+}
+
+.close{
+position:absolute;
+right:20px;
+top:15px;
+border:0;
+background:none;
+font-size:27px;
+}
+
+.modal-title{
+font-family:"Cormorant Garamond",serif;
+font-size:40px;
+font-weight:400;
+margin-bottom:25px;
+}
+
+
+/* PRODUCT DETAIL */
+
+.detail-box{
+background:#f7f5f0;
+width:min(1050px,100%);
+max-height:94vh;
+overflow:auto;
+padding:25px;
+position:relative;
+}
+
+.detail-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:35px;
+}
+
+.detail-main{
+aspect-ratio:3/4;
+overflow:hidden;
+}
+
+.detail-main img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.thumbnails{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:7px;
+margin-top:8px;
+}
+
+.thumbnail{
+aspect-ratio:1;
+overflow:hidden;
+border:1px solid transparent;
+}
+
+.thumbnail.active{
+border-color:#111;
+}
+
+.thumbnail img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.detail-info{
+padding:35px 15px;
+}
+
+.detail-brand{
+font-size:10px;
+letter-spacing:3px;
+color:#777;
+margin-bottom:10px;
+}
+
+.detail-name{
+font-family:"Cormorant Garamond",serif;
+font-size:48px;
+font-weight:400;
+margin-bottom:15px;
+}
+
+.detail-price{
+font-size:15px;
+margin-bottom:35px;
+}
+
+.detail-label{
+font-size:10px;
+letter-spacing:2px;
+margin-bottom:12px;
+}
+
+.sizes{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-bottom:30px;
+}
+
+.sizes button{
+min-width:48px;
+height:42px;
+border:1px solid #bbb;
+background:transparent;
+}
+
+.sizes button.selected{
+background:#111;
+color:white;
+}
+
+.sizes button.unavailable{
+color:#aaa;
+background:#e9e6df;
+text-decoration:line-through;
+}
+
+.add-cart{
+width:100%;
+padding:17px;
+background:#111;
+color:white;
+border:0;
+letter-spacing:2px;
+font-size:10px;
+}
+
+
+/* CART */
+
+.cart-item{
+display:flex;
+gap:15px;
+padding:15px 0;
+border-bottom:1px solid #ddd;
+}
+
+.cart-item img{
+width:80px;
+height:100px;
+object-fit:cover;
+}
+
+.cart-info{
+flex:1;
+}
+
+.cart-brand{
+font-size:9px;
+letter-spacing:1px;
+color:#777;
+}
+
+.cart-name{
+font-family:"Cormorant Garamond",serif;
+font-size:19px;
+margin:5px 0;
+}
+
+.cart-size{
+font-size:10px;
+color:#777;
+}
+
+.cart-price{
+font-size:11px;
+margin-top:5px;
+}
+
+.remove{
+border:0;
+background:none;
+font-size:10px;
+text-decoration:underline;
+}
+
+.cart-total{
+display:flex;
+justify-content:space-between;
+margin-top:25px;
+}
+
+.checkout-btn{
+width:100%;
+margin-top:20px;
+padding:15px;
+background:#111;
+color:white;
+border:0;
+letter-spacing:2px;
+font-size:10px;
+}
+
+
+/* CHECKOUT */
+
+.checkout-form{
+display:grid;
+gap:15px;
+}
+
+.checkout-form input,
+.checkout-form textarea{
+width:100%;
+border:1px solid #ccc;
+background:white;
+padding:13px;
+outline:none;
+}
+
+.checkout-form textarea{
+min-height:90px;
+resize:vertical;
+}
+
+
+/* WISHLIST */
+
+.wish-item{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 0;
+border-bottom:1px solid #ddd;
+}
+
+.wish-item-info{
+display:flex;
+gap:15px;
+align-items:center;
+}
+
+.wish-item img{
+width:60px;
+height:75px;
+object-fit:cover;
+}
+
+.wish-remove{
+border:0;
+background:none;
+}
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.nav{
+padding:15px 18px;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.logo{
+font-size:27px;
+}
+
+.nav-links{
+order:3;
+width:100%;
+justify-content:center;
+gap:18px;
+}
+
+.hero{
+min-height:600px;
+}
+
+.hero-content{
+padding:40px 25px;
+}
+
+.hero h1{
+font-size:58px;
+}
+
+.products{
+grid-template-columns:repeat(2,1fr);
+gap:30px 10px;
+}
+
+.section{
+padding-left:18px;
+padding-right:18px;
+}
+
+.section-header{
+display:block;
+}
+
+.search{
+width:100%;
+margin-top:20px;
+}
+
+.editorial{
+padding-left:18px;
+padding-right:18px;
+}
+
+.editorial-grid{
+grid-template-columns:1fr;
+}
+
+.brands{
+padding-left:18px;
+padding-right:18px;
+}
+
+.brands-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.footer-inner{
+grid-template-columns:1fr 1fr;
+}
+
+.detail-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:500px){
+
+.hero h1{
+font-size:52px;
+}
+
+.intro{
+padding:80px 20px;
+}
+
+.intro h2{
+font-size:40px;
+}
+
+.newsletter h2{
+font-size:40px;
+}
+
+.newsletter-form{
+flex-direction:column;
+gap:8px;
+}
+
+.newsletter-form button{
+padding:14px;
+}
+
+.footer-inner{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="nav">
+
+<a class="logo" href="#">ELKE</a>
+
+<nav class="nav-links">
+
+<a href="#shop" id="navShop">SHOP</a>
+
+<a href="#brands" id="navBrands">BRANDS</a>
+
+<a href="#editorial" id="navEditorial">EDITORIAL</a>
+
+</nav>
+
+
+<div class="nav-actions">
+
+<button class="nav-btn" onclick="openWishlist()">
+♡ <span id="wishlistCount">0</span>
+</button>
+
+<button class="nav-btn" onclick="openCart()">
+<span id="bagText">BAG</span>
+<span id="cartCount">0</span>
+</button>
+
+<button class="nav-btn language" onclick="toggleLanguage()" id="languageButton">
+GE
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=85">
+
+<div class="hero-content">
+
+<div class="hero-small" id="heroSmall">
+ELKE STUDIO — 2026
+</div>
+
+<h1 id="heroTitle">
+Quiet<br>Luxury.
+</h1>
+
+<p id="heroText">
+Curated fashion, timeless silhouettes and pieces chosen for an effortless wardrobe.
+</p>
+
+<a href="#shop" class="primary-btn" id="heroButton">
+SHOP COLLECTION
+</a>
+
+</div>
+
+</section>
+
+
+<section class="intro">
+
+<div class="intro-label" id="introLabel">
+THE ELKE EDIT
+</div>
+
+<h2 id="introTitle">
+Modern pieces.<br>
+Timeless attitude.
+</h2>
+
+<p id="introText">
+ELKE STUDIO is an independent fashion space focused on carefully selected pieces,
+minimal silhouettes and understated luxury.
+</p>
+
+</section>
+
+
+<section class="section" id="shop">
+
+<div class="section-header">
+
+<h2 class="section-title" id="shopTitle">
+Shop
+</h2>
+
+<input
+class="search"
+id="searchInput"
+placeholder="Search..."
+oninput="searchProducts()"
+>
+
+</div>
+
+
+<div class="filters">
+
+<button class="filter active" onclick="filterProducts('all',this)" id="filterAll">
+ALL
+</button>
+
+<button class="filter" onclick="filterProducts('clothing',this)" id="filterClothing">
+CLOTHING
+</button>
+
+<button class="filter" onclick="filterProducts('bags',this)" id="filterBags">
+BAGS
+</button>
+
+<button class="filter" onclick="filterProducts('shoes',this)" id="filterShoes">
+SHOES
+</button>
+
+<button class="filter" onclick="filterProducts('accessories',this)" id="filterAccessories">
+ACCESSORIES
+</button>
+
+</div>
+
+
+<div class="products" id="productGrid"></div>
+
+</section>
+
+
+<section class="editorial" id="editorial">
+
+<div class="section-header">
+
+<h2 class="section-title" id="editorialTitle">
+Editorial
+</h2>
+
+</div>
+
+
+<div class="editorial-grid">
+
+<div class="editorial-card">
+
+<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=85">
+
+<div class="editorial-text">
+
+<span id="newEdit">
+THE NEW EDIT
+</span>
+
+<h3 id="lessBetter">
+Less, but better.
+</h3>
+
+</div>
+
+</div>
+
+
+<div class="editorial-card">
+
+<img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=85">
+
+<div class="editorial-text">
+
+<span id="styleNote">
+STYLE NOTE
+</span>
+
+<h3 id="quietConfidence">
+Quiet confidence.
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="brands" id="brands">
+
+<div class="section-header">
+
+<h2 class="section-title" id="brandsTitle">
+Brands
+</h2>
+
+</div>
+
+
+<div class="brands-grid">
+
+<div class="brand">GANNI</div>
+<div class="brand">GUESS</div>
+<div class="brand">Maje</div>
+<div class="brand">Valentino</div>
+<div class="brand">Desigual</div>
+<div class="brand">Zadig &amp; Voltaire</div>
+<div class="brand">Alexander McQueen</div>
+<div class="brand">7 For All Mankind</div>
+
+</div>
+
+</section>
+
+
+<section class="newsletter">
+
+<h2 id="newsletterTitle">
+Stay in the know.
+</h2>
+
+<p id="newsletterText">
+New arrivals, editorials and selected pieces — straight to your inbox.
+</p>
+
+<form class="newsletter-form" onsubmit="subscribe(event)">
+
+<input
+type="email"
+id="emailInput"
+placeholder="Your email address"
+required
+>
+
+<button type="submit" id="subscribeButton">
+SUBSCRIBE
+</button>
+
+</form>
+
+</section>
+
+
+<footer>
+
+<div class="footer-inner">
+
+<div>
+
+<div class="footer-logo">
+ELKE
+</div>
+
+<div class="footer-description" id="footerDescription">
+Independent fashion studio based on timeless style,
+quiet luxury and carefully selected pieces.
+</div>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4 id="footerShop">
+SHOP
+</h4>
+
+<a href="#shop" id="footerAll">All</a>
+<a href="#shop" id="footerClothing">Clothing</a>
+<a href="#shop" id="footerBags">Bags</a>
+<a href="#shop" id="footerShoes">Shoes</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>ELKE</h4>
+
+<a href="#editorial" id="footerEditorial">Editorial</a>
+<a href="#brands" id="footerBrands">Brands</a>
+<a href="#" id="footerAbout">About</a>
+<a href="#" id="footerContact">Contact</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>SOCIAL</h4>
+
+<a href="#">Instagram</a>
+<a href="#">TikTok</a>
+<a href="#">Pinterest</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+© 2026 ELKE STUDIO — ALL RIGHTS RESERVED
+</div>
+
+</footer>
+
+
+<!-- PRODUCT MODAL -->
+
+<div class="modal" id="detailModal">
+
+<div class="detail-box">
+
+<button class="close" onclick="closeDetail()">×</button>
+
+<div class="detail-grid">
+
+<div>
+
+<div class="detail-main">
+<img id="detailMainImage">
+</div>
+
+<div class="thumbnails" id="thumbnails"></div>
+
+</div>
+
+
+<div class="detail-info">
+
+<div class="detail-brand" id="detailBrand"></div>
+
+<h2 class="detail-name" id="detailName"></h2>
+
+<div class="detail-price" id="detailPrice"></div>
+
+<div class="detail-label" id="sizeLabel">
+SIZE
+</div>
+
+<div class="sizes" id="sizeButtons"></div>
+
+<button class="add-cart" onclick="addToCart()" id="addButton">
+ADD TO BAG
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CART -->
+
+<div class="modal" id="cartModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeCart()">×</button>
+
+<h2 class="modal-title" id="cartTitle">
+Your Bag
+</h2>
+
+<div id="cartItems"></div>
+
+<div class="cart-total">
+
+<span id="totalText">TOTAL</span>
+
+<span id="cartTotal">0 GEL</span>
+
+</div>
+
+<button class="checkout-btn" onclick="openCheckout()" id="checkoutButton">
+CHECKOUT
+</button>
+
+</div>
+
+</div>
+
+
+<!-- WISHLIST -->
+
+<div class="modal" id="wishlistModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeWishlist()">×</button>
+
+<h2 class="modal-title" id="wishlistTitle">
+Wishlist
+</h2>
+
+<div id="wishlistItems"></div>
+
+</div>
+
+</div>
+
+
+<!-- CHECKOUT -->
+
+<div class="modal" id="checkoutModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeCheckout()">×</button>
+
+<h2 class="modal-title" id="checkoutTitle">
+Checkout
+</h2>
+
+<form class="checkout-form" onsubmit="placeOrder(event)">
+
+<input
+type="text"
+id="nameInput"
+placeholder="Full name"
+required
+>
+
+<input
+type="tel"
+id="phoneInput"
+placeholder="Phone number"
+required
+>
+
+<textarea
+id="addressInput"
+placeholder="Delivery address"
+required
+></textarea>
+
+<button class="checkout-btn" type="submit" id="placeOrderButton">
+PLACE ORDER
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================
+PRODUCTS
+========================= */
+
+const products=[
+
+{
+id:1,
+brand:"7 For All Mankind",
+name:"Denim Jacket",
+price:535,
+category:"clothing",
+images:[
+"https://i.ibb.co/BVtQ7cKV/IMG-9795.jpg",
+"https://i.ibb.co/qFxZqXyS/IMG-9797.jpg",
+"https://i.ibb.co/1tyy1JKS/IMG-9798.jpg",
+"https://i.ibb.co/4Rcty59k/IMG-9799.jpg",
+"https://i.ibb.co/9Hv8c2H1/IMG-9800.jpg"
+],
+sizes:["XXS","XS","S","M","L"],
+available:["XXS","XS","S","M","L"]
+},
+
+
+{
+id:8,
+brand:"GANNI",
+name:"Dress",
+price:395,
+category:"clothing",
+images:[
+"https://i.ibb.co/s4y2vz6/IMG-9801.jpg",
+"https://i.ibb.co/HLywVDpK/IMG-9802.jpg",
+"https://i.ibb.co/1fhJkJyz/IMG-9803.jpg",
+"https://i.ibb.co/JWb8hvdX/IMG-9804.jpg"
+],
+sizes:["32","34","36","38","40","42","44"],
+available:["34","38"]
+},
+
+
+{
+id:9,
+brand:"7 For All Mankind",
+name:"Denim Jacket Vicky",
+price:335,
+category:"clothing",
+images:[
+"https://i.ibb.co/m5txpQJN/IMG-9805.jpg",
+"https://i.ibb.co/xKfBY8Sp/IMG-9806.jpg",
+"https://i.ibb.co/sdx30hhv/IMG-9807.jpg",
+"https://i.ibb.co/jZPcLhZk/IMG-9808.jpg",
+"https://i.ibb.co/nqtwYCR8/IMG-9809.jpg",
+"https://i.ibb.co/fY9BFShy/IMG-9810.jpg"
+],
+sizes:["XS","S","M","L","XL"],
+available:["XS","M","L"]
+},
+
+
+{
+id:10,
+brand:"AIM",
+name:"Leather Waistcoat",
+price:395,
+category:"clothing",
+images:[
+"https://i.ibb.co/SwHvBS3H/IMG-9811.jpg",
+"https://i.ibb.co/cS5bTwvg/IMG-9812.jpg",
+"https://i.ibb.co/Z57nxX5/IMG-9815.jpg",
+"https://i.ibb.co/p9m55n8/IMG-9816.jpg",
+"https://i.ibb.co/BKsLYX4f/IMG-9817.jpg"
+],
+sizes:["XS","S","M","L"],
+available:["XS","S","M","L"]
+},
+
+
+{
+id:11,
+brand:"Guess",
+name:"Denim Jacket Go Quilted Trucker",
+price:395,
+category:"clothing",
+images:[
+"https://i.ibb.co/pjQsRxmT/IMG-9818.jpg",
+"https://i.ibb.co/k2jfV1Rj/IMG-9819.jpg",
+"https://i.ibb.co/zWZNQxv5/IMG-9820.jpg",
+"https://i.ibb.co/mCYsS1FV/IMG-9821.jpg",
+"https://i.ibb.co/xtJsR5JN/IMG-9822.jpg"
+],
+sizes:["XS","S","M","L"],
+available:["XS","S","M","L"]
+},
+
+
+{
+id:12,
+brand:"Desigual",
+name:"Blazer Nina",
+price:499,
+category:"clothing",
+images:[
+"https://i.ibb.co/mrhSF1Hk/IMG-9823.jpg",
+"https://i.ibb.co/YBDgSqB6/IMG-9824.jpg",
+"https://i.ibb.co/rR9qWMRy/IMG-9825.jpg",
+"https://i.ibb.co/fVgpPVWZ/IMG-9826.jpg",
+"https://i.ibb.co/5hP68bSS/IMG-9827.jpg",
+"https://i.ibb.co/gXhKkgz/IMG-9828.jpg"
+],
+sizes:["S","M","L","XL"],
+available:["S","M","L","XL"]
+}
+
+];
+
+
+/* =========================
+LANGUAGE
+========================= */
+
+let lang="en";
+
+const text={
+
+en:{
+bag:"BAG",
+heroSmall:"ELKE STUDIO — 2026",
+heroTitle:"Quiet<br>Luxury.",
+heroText:"Curated fashion, timeless silhouettes and pieces chosen for an effortless wardrobe.",
+heroButton:"SHOP COLLECTION",
+
+introLabel:"THE ELKE EDIT",
+introTitle:"Modern pieces.<br>Timeless attitude.",
+introText:"ELKE STUDIO is an independent fashion space focused on carefully selected pieces, minimal silhouettes and understated luxury.",
+
+shop:"Shop",
+search:"Search...",
+
+all:"ALL",
+clothing:"CLOTHING",
+bags:"BAGS",
+shoes:"SHOES",
+accessories:"ACCESSORIES",
+
+editorial:"Editorial",
+newEdit:"THE NEW EDIT",
+lessBetter:"Less, but better.",
+styleNote:"STYLE NOTE",
+quietConfidence:"Quiet confidence.",
+
+brands:"Brands",
+
+newsletterTitle:"Stay in the know.",
+newsletterText:"New arrivals, editorials and selected pieces — straight to your inbox.",
+email:"Your email address",
+subscribe:"SUBSCRIBE",
+
+footerDescription:"Independent fashion studio based on timeless style, quiet luxury and carefully selected pieces.",
+
+about:"About",
+contact:"Contact",
+
+size:"SIZE",
+add:"ADD TO BAG",
+
+cart:"Your Bag",
+wishlist:"Wishlist",
+total:"TOTAL",
+checkout:"CHECKOUT",
+
+checkoutTitle:"Checkout",
+name:"Full name",
+phone:"Phone number",
+address:"Delivery address",
+place:"PLACE ORDER"
+},
+
+ka:{
+bag:"ჩანთა",
+heroSmall:"ELKE STUDIO — 2026",
+heroTitle:"მშვიდი<br>ფუფუნება.",
+heroText:"შერჩეული მოდა, დროული სილუეტები და ნივთები დახვეწილი და მარტივი გარდერობისთვის.",
+heroButton:"კოლექციის ნახვა",
+
+introLabel:"ELKE-ს არჩევანი",
+introTitle:"თანამედროვე ნივთები.<br>დროული სტილი.",
+introText:"ELKE STUDIO არის დამოუკიდებელი მოდის სივრცე, რომელიც აერთიანებს ფრთხილად შერჩეულ ნივთებს, მინიმალისტურ სილუეტებსა და მშვიდ ფუფუნებას.",
+
+shop:"მაღაზია",
+search:"ძიება...",
+
+all:"ყველა",
+clothing:"ტანსაცმელი",
+bags:"ჩანთები",
+shoes:"ფეხსაცმელი",
+accessories:"აქსესუარები",
+
+editorial:"რედაქცია",
+newEdit:"ახალი არჩევანი",
+lessBetter:"ნაკლები, მაგრამ უკეთესი.",
+styleNote:"სტილის ჩანაწერი",
+quietConfidence:"მშვიდი თავდაჯერებულობა.",
+
+brands:"ბრენდები",
+
+newsletterTitle:"იყავი სიახლეების საქმის კურსში.",
+newsletterText:"ახალი ნივთები, რედაქციული მასალა და შერჩეული კოლექციები — პირდაპირ შენს ელფოსტაზე.",
+email:"ელფოსტის მისამართი",
+subscribe:"გამოწერა",
+
+footerDescription:"დამოუკიდებელი მოდის სტუდია, რომელიც ეფუძნება დროულ სტილს, მშვიდ ფუფუნებასა და ფრთხილად შერჩეულ ნივთებს.",
+
+about:"ჩვენ შესახებ",
+contact:"კონტაქტი",
+
+size:"ზომა",
+add:"ჩანთაში დამატება",
+
+cart:"შენი ჩანთა",
+wishlist:"რჩეულები",
+total:"ჯამი",
+checkout:"შეკვეთის გაფორმება",
+
+checkoutTitle:"შეკვეთის გაფორმება",
+name:"სახელი და გვარი",
+phone:"ტელეფონის ნომერი",
+address:"მიწოდების მისამართი",
+place:"შეკვეთის განთავსება"
+}
+
+};
+
+
+/* =========================
+STATE
+========================= */
+
+let cart=[];
+let wishlist=[];
+let currentProduct=null;
+let selectedSize=null;
+let currentList=[...products];
+
+
+/* =========================
+TRANSLATE
+========================= */
+
+function translate(){
+
+const t=text[lang];
+
+document.getElementById("bagText").textContent=t.bag;
+
+document.getElementById("navShop").textContent=t.shop;
+document.getElementById("navBrands").textContent=t.brands;
+document.getElementById("navEditorial").textContent=t.editorial;
+
+document.getElementById("heroSmall").textContent=t.heroSmall;
+document.getElementById("heroTitle").innerHTML=t.heroTitle;
+document.getElementById("heroText").textContent=t.heroText;
+document.getElementById("heroButton").textContent=t.heroButton;
+
+document.getElementById("introLabel").textContent=t.introLabel;
+document.getElementById("introTitle").innerHTML=t.introTitle;
+document.getElementById("introText").textContent=t.introText;
+
+document.getElementById("shopTitle").textContent=t.shop;
+document.getElementById("searchInput").placeholder=t.search;
+
+document.getElementById("filterAll").textContent=t.all;
+document.getElementById("filterClothing").textContent=t.clothing;
+document.getElementById("filterBags").textContent=t.bags;
+document.getElementById("filterShoes").textContent=t.shoes;
+document.getElementById("filterAccessories").textContent=t.accessories;
+
+document.getElementById("editorialTitle").textContent=t.editorial;
+document.getElementById("newEdit").textContent=t.newEdit;
+document.getElementById("lessBetter").textContent=t.lessBetter;
+document.getElementById("styleNote").textContent=t.styleNote;
+document.getElementById("quietConfidence").textContent=t.quietConfidence;
+
+document.getElementById("brandsTitle").textContent=t.brands;
+
+document.getElementById("newsletterTitle").textContent=t.newsletterTitle;
+document.getElementById("newsletterText").textContent=t.newsletterText;
+document.getElementById("emailInput").placeholder=t.email;
+document.getElementById("subscribeButton").textContent=t.subscribe;
+
+document.getElementById("footerDescription").textContent=t.footerDescription;
+document.getElementById("footerShop").textContent=t.shop;
+document.getElementById("footerAll").textContent=t.all;
+document.getElementById("footerClothing").textContent=t.clothing;
+document.getElementById("footerBags").textContent=t.bags;
+document.getElementById("footerShoes").textContent=t.shoes;
+document.getElementById("footerEditorial").textContent=t.editorial;
+document.getElementById("footerBrands").textContent=t.brands;
+document.getElementById("footerAbout").textContent=t.about;
+document.getElementById("footerContact").textContent=t.contact;
+
+document.getElementById("sizeLabel").textContent=t.size;
+document.getElementById("addButton").textContent=t.add;
+
+document.getElementById("cartTitle").textContent=t.cart;
+document.getElementById("wishlistTitle").textContent=t.wishlist;
+document.getElementById("totalText").textContent=t.total;
+document.getElementById("checkoutButton").textContent=t.checkout;
+
+document.getElementById("checkoutTitle").textContent=t.checkoutTitle;
+document.getElementById("nameInput").placeholder=t.name;
+document.getElementById("phoneInput").placeholder=t.phone;
+document.getElementById("addressInput").placeholder=t.address;
+document.getElementById("placeOrderButton").textContent=t.place;
+
+document.getElementById("languageButton").textContent=
+lang==="en" ? "GE" : "EN";
+
+document.documentElement.lang=lang==="ka" ? "ka" : "en";
+
+document.body.classList.toggle("ka",lang==="ka");
+
+renderProducts(currentList);
+renderCart();
+renderWishlist();
+
+}
+
+
+/* =========================
+LANGUAGE BUTTON
+========================= */
+
+function toggleLanguage(){
+
+lang=lang==="en" ? "ka" : "en";
+
+translate();
+
+}
+
+
+/* =========================
+PRODUCTS
+========================= */
+
+function renderProducts(list){
+
+currentList=list;
+
+const grid=document.getElementById("productGrid");
+
+grid.innerHTML="";
+
+if(!list.length){
+
+grid.innerHTML=`
+
+<div style="
+grid-column:1/-1;
+text-align:center;
+padding:60px;
+color:#777;
+">
+
+${lang==="ka" ? "ნივთი ვერ მოიძებნა." : "No products found."}
+
+</div>
+
+`;
+
+return;
+}
+
+
+list.forEach(product=>{
+
+const card=document.createElement("div");
+
+card.className="product-card";
+
+const liked=wishlist.includes(product.id);
+
+card.innerHTML=`
+
+<div class="product-image" onclick="openProduct(${product.id})">
+
+<img src="${product.images[0]}">
+
+<button
+class="wish"
+onclick="event.stopPropagation();toggleWish(${product.id})"
+>
+${liked ? "♥" : "♡"}
+</button>
+
+</div>
+
+<div class="product-info" onclick="openProduct(${product.id})">
+
+<div class="product-brand">
+${product.brand}
+</div>
+
+<div class="product-name">
+${product.name}
+</div>
+
+<div class="product-price">
+${product.price} GEL
+</div>
+
+</div>
+
+`;
+
+grid.appendChild(card);
+
+});
+
+}
+
+
+/* =========================
+FILTER
+========================= */
+
+function filterProducts(category,button){
+
+document.querySelectorAll(".filter")
+.forEach(x=>x.classList.remove("active"));
+
+button.classList.add("active");
+
+if(category==="all"){
+renderProducts(products);
+}else{
+renderProducts(
+products.filter(x=>x.category===category)
+);
+}
+
+}
+
+
+/* =========================
+SEARCH
+========================= */
+
+function searchProducts(){
+
+const value=
+document.getElementById("searchInput")
+.value
+.toLowerCase();
+
+renderProducts(
+products.filter(p=>
+p.name.toLowerCase().includes(value) ||
+p.brand.toLowerCase().includes(value)
+)
+);
+
+}
+
+
+/* =========================
+PRODUCT MODAL
+========================= */
+
+function openProduct(id){
+
+currentProduct=products.find(x=>x.id===id);
+
+selectedSize=null;
+
+const p=currentProduct;
+
+document.getElementById("detailBrand").textContent=p.brand;
+document.getElementById("detailName").textContent=p.name;
+document.getElementById("detailPrice").textContent=p.price+" GEL";
+
+document.getElementById("detailMainImage").src=p.images[0];
+
+const thumbs=document.getElementById("thumbnails");
+
+thumbs.innerHTML="";
+
+p.images.forEach((image,index)=>{
+
+const div=document.createElement("div");
+
+div.className="thumbnail"+(index===0?" active":"");
+
+div.innerHTML=`<img src="${image}">`;
+
+div.onclick=()=>{
+
+document.getElementById("detailMainImage").src=image;
+
+document.querySelectorAll(".thumbnail")
+.forEach(x=>x.classList.remove("active"));
+
+div.classList.add("active");
+
+};
+
+thumbs.appendChild(div);
+
+});
+
+
+const sizes=document.getElementById("sizeButtons");
+
+sizes.innerHTML="";
+
+if(!p.sizes){
+
+document.getElementById("sizeLabel").style.display="none";
+sizes.style.display="none";
+
+}else{
+
+document.getElementById("sizeLabel").style.display="block";
+sizes.style.display="flex";
+
+p.sizes.forEach(size=>{
+
+const button=document.createElement("button");
+
+button.textContent=size;
+
+if(!p.available.includes(size)){
+
+button.disabled=true;
+button.classList.add("unavailable");
+
+}else{
+
+button.onclick=()=>{
+
+document.querySelectorAll("#sizeButtons button")
+.forEach(x=>x.classList.remove("selected"));
+
+button.classList.add("selected");
+
+selectedSize=size;
+
+};
+
+}
+
+sizes.appendChild(button);
+
+});
+
+}
+
+
+document.getElementById("detailModal")
+.classList.add("show");
+
+}
+
+
+function closeDetail(){
+
+document.getElementById("detailModal")
+.classList.remove("show");
+
+}
+
+
+/* =========================
+ADD TO CART
+========================= */
+
+function addToCart(){
+
+const p=currentProduct;
+
+if(p.sizes && !selectedSize){
+
+alert(
+lang==="ka"
+?
+"გთხოვ, აირჩიე ზომა."
+:
+"Please select a size."
+);
+
+return;
+
+}
+
+cart.push({
+id:p.id,
+size:selectedSize
+});
+
+document.getElementById("cartCount")
+.textContent=cart.length;
+
+closeDetail();
+
+alert(
+lang==="ka"
+?
+"ნივთი ჩანთაში დაემატა."
+:
+"Added to bag."
+);
+
+renderCart();
+
+}
+
+
+/* =========================
+CART
+========================= */
+
+function openCart(){
+
+renderCart();
+
+document.getElementById("cartModal")
+.classList.add("show");
+
+}
+
+function closeCart(){
+
+document.getElementById("cartModal")
+.classList.remove("show");
+
+}
+
+
+function renderCart(){
+
+const box=document.getElementById("cartItems");
+
+box.innerHTML="";
+
+if(cart.length===0){
+
+box.innerHTML=`
+
+<p style="color:#777;font-size:12px;">
+${lang==="ka"?"შენი ჩანთა ცარიელია.":"Your bag is empty."}
+</p>
+
+`;
+
+document.getElementById("cartTotal").textContent="0 GEL";
+
+return;
+
+}
+
+
+let total=0;
+
+cart.forEach((item,index)=>{
+
+const p=products.find(x=>x.id===item.id);
+
+total+=p.price;
+
+const div=document.createElement("div");
+
+div.className="cart-item";
+
+div.innerHTML=`
+
+<img src="${p.images[0]}">
+
+<div class="cart-info">
+
+<div class="cart-brand">
+${p.brand}
+</div>
+
+<div class="cart-name">
+${p.name}
+</div>
+
+${
+item.size
+?
+`
+<div class="cart-size">
+${lang==="ka"?"ზომა":"SIZE"}: ${item.size}
+</div>
+`
+:""
+}
+
+<div class="cart-price">
+${p.price} GEL
+</div>
+
+</div>
+
+<button
+class="remove"
+onclick="removeCart(${index})"
+>
+${lang==="ka"?"წაშლა":"REMOVE"}
+</button>
+
+`;
+
+box.appendChild(div);
+
+});
+
+document.getElementById("cartTotal")
+.textContent=total+" GEL";
+
+}
+
+
+function removeCart(index){
+
+cart.splice(index,1);
+
+document.getElementById("cartCount")
+.textContent=cart.length;
+
+renderCart();
+
+}
+
+
+/* =========================
+WISHLIST
+========================= */
+
+function toggleWish(id){
+
+if(wishlist.includes(id)){
+
+wishlist=wishlist.filter(x=>x!==id);
+
+}else{
+
+wishlist.push(id);
+
+}
+
+document.getElementById("wishlistCount")
+.textContent=wishlist.length;
+
+renderProducts(currentList);
+renderWishlist();
+
+}
+
+
+function openWishlist(){
+
+renderWishlist();
+
+document.getElementById("wishlistModal")
+.classList.add("show");
+
+}
+
+function closeWishlist(){
+
+document.getElementById("wishlistModal")
+.classList.remove("show");
+
+}
+
+
+function renderWishlist(){
+
+const box=document.getElementById("wishlistItems");
+
+box.innerHTML="";
+
+if(!wishlist.length){
+
+box.innerHTML=`
+
+<p style="color:#777;font-size:12px;">
+${lang==="ka"?"რჩეულები ცარიელია.":"Your wishlist is empty."}
+</p>
+
+`;
+
+return;
+
+}
+
+
+wishlist.forEach(id=>{
+
+const p=products.find(x=>x.id===id);
+
+const div=document.createElement("div");
+
+div.className="wish-item";
+
+div.innerHTML=`
+
+<div class="wish-item-info">
+
+<img src="${p.images[0]}">
+
+<div>
+
+<div style="font-size:9px;letter-spacing:2px;color:#777;">
+${p.brand}
+</div>
+
+<div style="font-family:Cormorant Garamond;font-size:20px;">
+${p.name}
+</div>
+
+<div style="font-size:11px;">
+${p.price} GEL
+</div>
+
+</div>
+
+</div>
+
+<button
+class="wish-remove"
+onclick="toggleWish(${p.id})"
+>
+${lang==="ka"?"წაშლა":"REMOVE"}
+</button>
+
+`;
+
+box.appendChild(div);
+
+});
+
+}
+
+
+/* =========================
+CHECKOUT
+========================= */
+
+function openCheckout(){
+
+if(cart.length===0){
+
+alert(
+lang==="ka"
+?
+"შენი ჩანთა ცარიელია."
+:
+"Your bag is empty."
+);
+
+return;
+
+}
+
+closeCart();
+
+document.getElementById("checkoutModal")
+.classList.add("show");
+
+}
+
+
+function closeCheckout(){
+
+document.getElementById("checkoutModal")
+.classList.remove("show");
+
+}
+
+
+function placeOrder(event){
+
+event.preventDefault();
+
+const name=document.getElementById("nameInput").value;
+
+alert(
+
+lang==="ka"
+
+?
+
+"მადლობა, "+name+"! შენი შეკვეთა მიღებულია."
+
+:
+
+"Thank you, "+name+"! Your order has been received."
+
+);
+
+cart=[];
+
+document.getElementById("cartCount").textContent="0";
+
+renderCart();
+
+closeCheckout();
+
+event.target.reset();
+
+}
+
+
+/* =========================
+NEWSLETTER
+========================= */
+
+function subscribe(event){
+
+event.preventDefault();
+
+alert(
+lang==="ka"
+?
+"მადლობა გამოწერისთვის!"
+:
+"Thank you for subscribing to ELKE STUDIO!"
+);
+
+event.target.reset();
+
+}
+
+
+/* =========================
+CLOSE MODALS
+========================= */
+
+document.querySelectorAll(".modal")
+.forEach(modal=>{
+
+modal.addEventListener("click",function(e){
+
+if(e.target===modal){
+modal.classList.remove("show");
+}
+
+});
+
+});
+
+
+/* =========================
+START
+========================= */
+
+renderProducts(products);
+renderCart();
+renderWishlist();
+
+</script>
+
+</body>
+</html>
