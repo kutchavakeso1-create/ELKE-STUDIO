@@ -163,6 +163,7 @@ aspect-ratio:3/4;
 overflow:hidden;
 background:#f5f5f5;
 position:relative;
+cursor:pointer;
 }
 
 .product-image img{
@@ -247,6 +248,7 @@ top:15px;
 border:none;
 background:none;
 font-size:25px;
+z-index:10;
 }
 
 .product-detail{
@@ -728,8 +730,15 @@ ELKE STUDIO
 </div>
 
 <div class="nav">
-<button onclick="scrollToShop()" id="navShop">SHOP</button>
-<button onclick="openCart()" id="navCart">CART</button>
+
+<button onclick="scrollToShop()" id="navShop">
+SHOP
+</button>
+
+<button onclick="openCart()" id="navCart">
+CART
+</button>
+
 </div>
 
 <div class="header-icons">
@@ -739,8 +748,13 @@ ELKE STUDIO
 </button>
 
 <button class="icon-btn" onclick="openCart()">
+
 ♡
-<span class="count" id="cartCount">0</span>
+
+<span class="count" id="cartCount">
+0
+</span>
+
 </button>
 
 </div>
@@ -750,7 +764,9 @@ ELKE STUDIO
 
 <section class="hero">
 
-<h1>ELKE STUDIO</h1>
+<h1>
+ELKE STUDIO
+</h1>
 
 <p id="heroText">
 CURATED PIECES FOR EVERYDAY ELEGANCE
@@ -769,18 +785,24 @@ SHOP
 
 <div class="filters">
 
-<button class="active" onclick="filterProducts('all',this)" id="allFilter">
+<button
+class="active"
+onclick="filterProducts('all',this)"
+id="allFilter"
+>
 ALL
 </button>
 
-<button onclick="filterProducts('clothing',this)" id="clothingFilter">
+<button
+onclick="filterProducts('clothing',this)"
+id="clothingFilter"
+>
 CLOTHING
 </button>
 
 </div>
 
 </div>
-
 
 <div class="products" id="products"></div>
 
@@ -820,29 +842,57 @@ Instagram
 <div>
 
 <div class="product-main-image">
-<img id="mainProductImage" src="" alt="">
+
+<img
+id="mainProductImage"
+src=""
+alt=""
+>
+
 </div>
 
-<div class="thumbnails" id="thumbnails"></div>
+<div
+class="thumbnails"
+id="thumbnails"
+></div>
 
 </div>
 
 
 <div>
 
-<div class="detail-brand" id="detailBrand"></div>
+<div
+class="detail-brand"
+id="detailBrand"
+></div>
 
-<div class="detail-name" id="detailName"></div>
+<div
+class="detail-name"
+id="detailName"
+></div>
 
-<div class="detail-price" id="detailPrice"></div>
+<div
+class="detail-price"
+id="detailPrice"
+></div>
 
-<div class="size-title" id="sizeTitle">
+<div
+class="size-title"
+id="sizeTitle"
+>
 SELECT SIZE
 </div>
 
-<div class="sizes" id="sizes"></div>
+<div
+class="sizes"
+id="sizes"
+></div>
 
-<button class="add-cart" onclick="addToCart()" id="addCartButton">
+<button
+class="add-cart"
+onclick="addToCart()"
+id="addCartButton"
+>
 ADD TO CART
 </button>
 
@@ -857,17 +907,26 @@ ADD TO CART
 
 <!-- CART -->
 
-<div class="cart-overlay" id="cartOverlay">
+<div
+class="cart-overlay"
+id="cartOverlay"
+>
 
 <div class="cart">
 
 <div class="cart-header">
 
-<div class="cart-title" id="cartTitle">
+<div
+class="cart-title"
+id="cartTitle"
+>
 CART
 </div>
 
-<button class="cart-close" onclick="closeCart()">
+<button
+class="cart-close"
+onclick="closeCart()"
+>
 ×
 </button>
 
@@ -875,7 +934,10 @@ CART
 
 <div id="cartItems"></div>
 
-<div class="cart-bottom" id="cartBottom"></div>
+<div
+class="cart-bottom"
+id="cartBottom"
+></div>
 
 </div>
 
@@ -884,15 +946,24 @@ CART
 
 <!-- CHECKOUT -->
 
-<div class="checkout-overlay" id="checkoutOverlay">
+<div
+class="checkout-overlay"
+id="checkoutOverlay"
+>
 
 <div class="checkout-box">
 
-<button class="close" onclick="closeCheckout()">
+<button
+class="close"
+onclick="closeCheckout()"
+>
 ×
 </button>
 
-<div class="checkout-title" id="checkoutTitle">
+<div
+class="checkout-title"
+id="checkoutTitle"
+>
 CHECKOUT
 </div>
 
@@ -939,7 +1010,10 @@ PLACE ORDER
 
 <!-- SUCCESS -->
 
-<div class="success-overlay" id="successOverlay">
+<div
+class="success-overlay"
+id="successOverlay"
+>
 
 <div class="success-box">
 
@@ -958,7 +1032,10 @@ onclick="closeOrderSuccess()"
 THANK YOU!
 </h2>
 
-<div class="success-small" id="successText">
+<div
+class="success-small"
+id="successText"
+>
 Your order has been received successfully.
 </div>
 
@@ -988,7 +1065,7 @@ CONTINUE SHOPPING
 <script>
 
 /* =========================
-   LANGUAGE
+LANGUAGE
 ========================= */
 
 let lang="en";
@@ -1015,8 +1092,6 @@ thankYou:"THANK YOU!",
 successText:"Your order has been received successfully.",
 continueShopping:"CONTINUE SHOPPING",
 size:"Size",
-productPhoto:"Product photo",
-order:"Order",
 instagram:"Instagram"
 },
 
@@ -1040,8 +1115,6 @@ thankYou:"გმადლობთ!",
 successText:"თქვენი შეკვეთა წარმატებით გაიგზავნა.",
 continueShopping:"შოპინგის გაგრძელება",
 size:"ზომა",
-productPhoto:"პროდუქტის ფოტო",
-order:"შეკვეთა",
 instagram:"Instagram"
 }
 
@@ -1049,7 +1122,7 @@ instagram:"Instagram"
 
 
 /* =========================
-   PRODUCTS
+PRODUCTS
 ========================= */
 
 const products=[
@@ -1161,7 +1234,7 @@ images:[
 
 
 /* =========================
-   STATE
+STATE
 ========================= */
 
 let cart=[];
@@ -1172,12 +1245,13 @@ let currentList=[...products];
 
 
 /* =========================
-   TRANSLATE
+TRANSLATE
 ========================= */
 
 function translate(){
 
 document.getElementById("navShop").textContent=text[lang].navShop;
+
 document.getElementById("navCart").textContent=text[lang].navCart;
 
 document.getElementById("heroText").textContent=text[lang].heroText;
@@ -1185,6 +1259,7 @@ document.getElementById("heroText").textContent=text[lang].heroText;
 document.getElementById("shopTitle").textContent=text[lang].shopTitle;
 
 document.getElementById("allFilter").textContent=text[lang].all;
+
 document.getElementById("clothingFilter").textContent=text[lang].clothing;
 
 document.getElementById("sizeTitle").textContent=text[lang].selectSize;
@@ -1196,13 +1271,15 @@ document.getElementById("cartTitle").textContent=text[lang].cart;
 document.getElementById("checkoutTitle").textContent=text[lang].checkout;
 
 document.getElementById("nameInput").placeholder=text[lang].fullName;
+
 document.getElementById("phoneInput").placeholder=text[lang].phone;
+
 document.getElementById("addressInput").placeholder=text[lang].address;
 
 document.getElementById("placeOrderButton").textContent=text[lang].placeOrder;
 
 document.getElementById("successTitle").textContent=text[lang].thankYou;
-document.getElementById("successText").textContent=text[lang].successText;
+
 document.getElementById("successButton").textContent=text[lang].continueShopping;
 
 document.getElementById("instagramText").textContent=text[lang].instagram;
@@ -1211,13 +1288,14 @@ document.getElementById("languageButton").textContent=
 lang==="en" ? "KA" : "EN";
 
 renderProducts(currentList);
+
 renderCart();
 
 }
 
 
 /* =========================
-   LANGUAGE TOGGLE
+LANGUAGE TOGGLE
 ========================= */
 
 function toggleLanguage(){
@@ -1230,7 +1308,7 @@ translate();
 
 
 /* =========================
-   RENDER PRODUCTS
+RENDER PRODUCTS
 ========================= */
 
 function renderProducts(list){
@@ -1249,8 +1327,10 @@ const liked=wishlist.includes(product.id);
 
 card.innerHTML=`
 
-<div class="product-image"
-onclick="openProduct(${product.id})">
+<div
+class="product-image"
+onclick="openProduct(${product.id})"
+>
 
 <img
 src="${product.images[0]}"
@@ -1292,7 +1372,7 @@ container.appendChild(card);
 
 
 /* =========================
-   FILTER
+FILTER
 ========================= */
 
 function filterProducts(category,button){
@@ -1304,11 +1384,16 @@ document
 button.classList.add("active");
 
 if(category==="all"){
+
 currentList=[...products];
+
 }else{
-currentList=products.filter(
+
+currentList=
+products.filter(
 product=>product.category===category
 );
+
 }
 
 renderProducts(currentList);
@@ -1317,12 +1402,13 @@ renderProducts(currentList);
 
 
 /* =========================
-   OPEN PRODUCT
+OPEN PRODUCT
 ========================= */
 
 function openProduct(id){
 
-currentProduct=products.find(
+currentProduct=
+products.find(
 product=>product.id===id
 );
 
@@ -1340,7 +1426,8 @@ currentProduct.price+" GEL";
 document.getElementById("mainProductImage").src=
 currentProduct.images[0];
 
-const thumbs=document.getElementById("thumbnails");
+const thumbs=
+document.getElementById("thumbnails");
 
 thumbs.innerHTML="";
 
@@ -1368,12 +1455,13 @@ document
 
 
 /* =========================
-   SIZES
+SIZES
 ========================= */
 
 function renderSizes(){
 
-const container=document.getElementById("sizes");
+const container=
+document.getElementById("sizes");
 
 container.innerHTML="";
 
@@ -1384,18 +1472,24 @@ const button=document.createElement("button");
 button.className="size";
 
 if(!currentProduct.available.includes(size)){
+
 button.classList.add("unavailable");
+
 }
 
 if(selectedSize===size){
+
 button.classList.add("selected");
+
 }
 
 button.textContent=size;
 
 button.onclick=()=>{
 
-if(!currentProduct.available.includes(size)){
+if(
+!currentProduct.available.includes(size)
+){
 return;
 }
 
@@ -1413,7 +1507,7 @@ container.appendChild(button);
 
 
 /* =========================
-   CLOSE PRODUCT
+CLOSE PRODUCT
 ========================= */
 
 function closeProduct(){
@@ -1426,7 +1520,7 @@ document
 
 
 /* =========================
-   ADD TO CART
+ADD CART
 ========================= */
 
 function addToCart(){
@@ -1452,6 +1546,7 @@ return;
 cart.push({
 
 id:currentProduct.id,
+
 size:selectedSize
 
 });
@@ -1466,7 +1561,7 @@ openCart();
 
 
 /* =========================
-   CART COUNT
+CART COUNT
 ========================= */
 
 function updateCartCount(){
@@ -1478,7 +1573,7 @@ cart.length;
 
 
 /* =========================
-   OPEN CART
+OPEN CART
 ========================= */
 
 function openCart(){
@@ -1493,7 +1588,7 @@ document
 
 
 /* =========================
-   CLOSE CART
+CLOSE CART
 ========================= */
 
 function closeCart(){
@@ -1506,23 +1601,29 @@ document
 
 
 /* =========================
-   RENDER CART
+RENDER CART
 ========================= */
 
 function renderCart(){
 
-const container=document.getElementById("cartItems");
-const bottom=document.getElementById("cartBottom");
+const container=
+document.getElementById("cartItems");
+
+const bottom=
+document.getElementById("cartBottom");
 
 container.innerHTML="";
+
 bottom.innerHTML="";
 
 if(cart.length===0){
 
 container.innerHTML=`
+
 <div class="empty">
 ${text[lang].emptyCart}
 </div>
+
 `;
 
 return;
@@ -1580,11 +1681,14 @@ container.appendChild(div);
 
 });
 
+
 bottom.innerHTML=`
 
 <div class="cart-total">
 
-<span>TOTAL</span>
+<span>
+TOTAL
+</span>
 
 <span>
 ${total} GEL
@@ -1605,7 +1709,7 @@ ${text[lang].checkout}
 
 
 /* =========================
-   REMOVE FROM CART
+REMOVE CART
 ========================= */
 
 function removeFromCart(index){
@@ -1620,7 +1724,7 @@ renderCart();
 
 
 /* =========================
-   CHECKOUT
+OPEN CHECKOUT
 ========================= */
 
 function openCheckout(){
@@ -1639,7 +1743,7 @@ document
 
 
 /* =========================
-   CLOSE CHECKOUT
+CLOSE CHECKOUT
 ========================= */
 
 function closeCheckout(){
@@ -1652,7 +1756,7 @@ document
 
 
 /* =========================
-   PLACE ORDER
+PLACE ORDER
 ========================= */
 
 async function placeOrder(event){
@@ -1670,11 +1774,8 @@ document.getElementById("addressInput").value;
 
 
 /*
-IMPORTANT:
-ვინახავთ შეკვეთილ პროდუქტებს
-კალათის გასუფთავებამდე,
-რათა ფოტოები წარმატების ფანჯარაშიც
-გამოვაჩინოთ.
+ვინახავთ ზუსტად იმ პროდუქტებს,
+რომლებიც მომხმარებელმა გამოიწერა
 */
 
 const orderedProducts=cart.map(item=>{
@@ -1687,6 +1788,7 @@ p=>p.id===item.id
 return{
 
 product:product,
+
 size:item.size
 
 };
@@ -1695,9 +1797,7 @@ size:item.size
 
 
 /*
-ეს ტექსტი Formspree-ში გაიგზავნება.
-თითოეულ პროდუქტს დაემატება მისი
-პირველი ფოტოს პირდაპირი URL.
+Formspree-ში გასაგზავნი ინფორმაცია
 */
 
 const orderItems=
@@ -1706,36 +1806,22 @@ orderedProducts.map(item=>{
 const product=item.product;
 
 const photo=
-product.images && product.images.length
+product.images &&
+product.images.length
 ?
 product.images[0]
 :
 "";
 
-return `${product.brand} — ${product.name} | ${
-item.size
-?
-(lang==="ka"
-?
-"ზომა: "
-:
-"Size: ")
-+
-item.size
-+
-" | "
-:
-""
-}${product.price} GEL
-${
-lang==="ka"
-?
-"პროდუქტის ფოტო: "
-:
-"Product photo: "
-}${photo}`;
 
-}).join("\n\n");
+return `
+${product.brand} — ${product.name}
+Size: ${item.size}
+Price: ${product.price} GEL
+PRODUCT PHOTO: ${photo}
+`;
+
+}).join("\n\n--------------------\n\n");
 
 
 const orderData={
@@ -1792,10 +1878,18 @@ if(response.ok){
 
 closeCheckout();
 
+
+/*
+აქ უკვე გადავცემთ შეკვეთილ პროდუქტებს
+და მათი ფოტოები პირდაპირ გამოჩნდება
+success ფანჯარაში.
+*/
+
 showOrderSuccess(
 name,
 orderedProducts
 );
+
 
 cart=[];
 
@@ -1806,6 +1900,7 @@ renderCart();
 document
 .getElementById("nnh9bt")
 .reset();
+
 
 }else{
 
@@ -1818,6 +1913,7 @@ lang==="en"
 );
 
 }
+
 
 }catch(error){
 
@@ -1843,7 +1939,7 @@ text[lang].placeOrder;
 
 
 /* =========================
-   SUCCESS MODAL
+SUCCESS MODAL
 ========================= */
 
 function showOrderSuccess(
@@ -1865,6 +1961,7 @@ const div=
 document.createElement("div");
 
 div.className="success-product";
+
 
 div.innerHTML=`
 
@@ -1891,24 +1988,35 @@ ${product.price} GEL
 
 `;
 
+
 productsContainer.appendChild(div);
 
 });
 
 
 document.getElementById("successText").textContent=
+
 lang==="en"
+
 ?
+
 `Thank you, ${name}! Your order has been received successfully.`
+
 :
+
 `გმადლობთ, ${name}! თქვენი შეკვეთა წარმატებით გაიგზავნა.`;
 
 
 document.getElementById("successOrder").textContent=
+
 lang==="en"
+
 ?
+
 "ELKE STUDIO will contact you shortly."
+
 :
+
 "ELKE STUDIO მალე დაგიკავშირდებათ.";
 
 
@@ -1920,7 +2028,7 @@ document
 
 
 /* =========================
-   CLOSE SUCCESS
+CLOSE SUCCESS
 ========================= */
 
 function closeOrderSuccess(){
@@ -1933,7 +2041,7 @@ document
 
 
 /* =========================
-   WISHLIST
+WISHLIST
 ========================= */
 
 function toggleWishlist(id){
@@ -1957,7 +2065,7 @@ renderProducts(currentList);
 
 
 /* =========================
-   SCROLL TO SHOP
+SCROLL SHOP
 ========================= */
 
 function scrollToShop(){
@@ -1972,7 +2080,7 @@ behavior:"smooth"
 
 
 /* =========================
-   INITIALIZE
+START
 ========================= */
 
 translate();
