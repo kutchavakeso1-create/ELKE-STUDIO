@@ -207,6 +207,13 @@ margin-bottom:5px;
 
 .product-name{
 font-size:15px;
+margin-bottom:5px;
+}
+
+.product-code{
+font-size:10px;
+letter-spacing:1px;
+color:#777;
 margin-bottom:7px;
 }
 
@@ -294,6 +301,13 @@ margin-bottom:8px;
 
 .detail-name{
 font-size:27px;
+margin-bottom:7px;
+}
+
+.detail-code{
+font-size:10px;
+letter-spacing:1px;
+color:#777;
 margin-bottom:10px;
 }
 
@@ -761,7 +775,6 @@ CART
 
 </header>
 
-
 <section class="hero">
 
 <h1>
@@ -773,7 +786,6 @@ CURATED PIECES FOR EVERYDAY ELEGANCE
 </p>
 
 </section>
-
 
 <section class="shop" id="shop">
 
@@ -808,7 +820,6 @@ CLOTHING
 
 </section>
 
-
 <footer>
 
 <div class="footer-logo">
@@ -825,7 +836,6 @@ Instagram
 </a>
 
 </footer>
-
 
 <!-- PRODUCT MODAL -->
 
@@ -858,7 +868,6 @@ id="thumbnails"
 
 </div>
 
-
 <div>
 
 <div
@@ -869,6 +878,11 @@ id="detailBrand"
 <div
 class="detail-name"
 id="detailName"
+></div>
+
+<div
+class="detail-code"
+id="detailCode"
 ></div>
 
 <div
@@ -903,7 +917,6 @@ ADD TO CART
 </div>
 
 </div>
-
 
 <!-- CART -->
 
@@ -942,7 +955,6 @@ id="cartBottom"
 </div>
 
 </div>
-
 
 <!-- CHECKOUT -->
 
@@ -1007,7 +1019,6 @@ PLACE ORDER
 
 </div>
 
-
 <!-- SUCCESS -->
 
 <div
@@ -1060,7 +1071,6 @@ CONTINUE SHOPPING
 </div>
 
 </div>
-
 
 <script>
 
@@ -1120,7 +1130,6 @@ instagram:"Instagram"
 
 };
 
-
 /* =========================
 PRODUCTS
 ========================= */
@@ -1129,6 +1138,7 @@ const products=[
 
 {
 id:1,
+code:"1010",
 brand:"7 For All Mankind",
 name:"Denim Jacket",
 price:535,
@@ -1146,6 +1156,7 @@ images:[
 
 {
 id:2,
+code:"1011",
 brand:"GANNI",
 name:"Dress",
 price:395,
@@ -1162,6 +1173,7 @@ images:[
 
 {
 id:3,
+code:"1012",
 brand:"7 For All Mankind",
 name:"Denim Jacket Vicky",
 price:335,
@@ -1180,6 +1192,7 @@ images:[
 
 {
 id:4,
+code:"1013",
 brand:"AIM",
 name:"Leather Waistcoat",
 price:395,
@@ -1197,6 +1210,7 @@ images:[
 
 {
 id:5,
+code:"1014",
 brand:"Guess",
 name:"Denim Jacket Go Quilted Trucker",
 price:395,
@@ -1214,6 +1228,7 @@ images:[
 
 {
 id:6,
+code:"1015",
 brand:"Desigual",
 name:"Blazer Nina",
 price:499,
@@ -1232,7 +1247,6 @@ images:[
 
 ];
 
-
 /* =========================
 STATE
 ========================= */
@@ -1242,7 +1256,6 @@ let wishlist=[];
 let currentProduct=null;
 let selectedSize=null;
 let currentList=[...products];
-
 
 /* =========================
 TRANSLATE
@@ -1293,7 +1306,6 @@ renderCart();
 
 }
 
-
 /* =========================
 LANGUAGE TOGGLE
 ========================= */
@@ -1305,7 +1317,6 @@ lang=lang==="en" ? "ka" : "en";
 translate();
 
 }
-
 
 /* =========================
 RENDER PRODUCTS
@@ -1356,6 +1367,10 @@ ${product.brand}
 ${product.name}
 </div>
 
+<div class="product-code">
+PRODUCT CODE: ${product.code}
+</div>
+
 <div class="product-price">
 ${product.price} GEL
 </div>
@@ -1369,7 +1384,6 @@ container.appendChild(card);
 });
 
 }
-
 
 /* =========================
 FILTER
@@ -1400,7 +1414,6 @@ renderProducts(currentList);
 
 }
 
-
 /* =========================
 OPEN PRODUCT
 ========================= */
@@ -1419,6 +1432,9 @@ currentProduct.brand;
 
 document.getElementById("detailName").textContent=
 currentProduct.name;
+
+document.getElementById("detailCode").textContent=
+"PRODUCT CODE: " + currentProduct.code;
 
 document.getElementById("detailPrice").textContent=
 currentProduct.price+" GEL";
@@ -1452,7 +1468,6 @@ document
 .classList.add("show");
 
 }
-
 
 /* =========================
 SIZES
@@ -1505,7 +1520,6 @@ container.appendChild(button);
 
 }
 
-
 /* =========================
 CLOSE PRODUCT
 ========================= */
@@ -1517,7 +1531,6 @@ document
 .classList.remove("show");
 
 }
-
 
 /* =========================
 ADD CART
@@ -1559,7 +1572,6 @@ openCart();
 
 }
 
-
 /* =========================
 CART COUNT
 ========================= */
@@ -1570,7 +1582,6 @@ document.getElementById("cartCount").textContent=
 cart.length;
 
 }
-
 
 /* =========================
 OPEN CART
@@ -1586,7 +1597,6 @@ document
 
 }
 
-
 /* =========================
 CLOSE CART
 ========================= */
@@ -1598,7 +1608,6 @@ document
 .classList.remove("show");
 
 }
-
 
 /* =========================
 RENDER CART
@@ -1681,7 +1690,6 @@ container.appendChild(div);
 
 });
 
-
 bottom.innerHTML=`
 
 <div class="cart-total">
@@ -1707,7 +1715,6 @@ ${text[lang].checkout}
 
 }
 
-
 /* =========================
 REMOVE CART
 ========================= */
@@ -1721,7 +1728,6 @@ updateCartCount();
 renderCart();
 
 }
-
 
 /* =========================
 OPEN CHECKOUT
@@ -1741,7 +1747,6 @@ document
 
 }
 
-
 /* =========================
 CLOSE CHECKOUT
 ========================= */
@@ -1753,7 +1758,6 @@ document
 .classList.remove("show");
 
 }
-
 
 /* =========================
 PLACE ORDER
@@ -1772,12 +1776,6 @@ document.getElementById("phoneInput").value;
 const address=
 document.getElementById("addressInput").value;
 
-
-/*
-ვინახავთ ზუსტად იმ პროდუქტებს,
-რომლებიც მომხმარებელმა გამოიწერა
-*/
-
 const orderedProducts=cart.map(item=>{
 
 const product=
@@ -1795,34 +1793,19 @@ size:item.size
 
 });
 
-
-/*
-Formspree-ში გასაგზავნი ინფორმაცია
-*/
-
 const orderItems=
 orderedProducts.map(item=>{
 
 const product=item.product;
 
-const photo=
-product.images &&
-product.images.length
-?
-product.images[0]
-:
-"";
-
-
 return `
+PRODUCT CODE: ${product.code}
 ${product.brand} — ${product.name}
 Size: ${item.size}
 Price: ${product.price} GEL
-PRODUCT PHOTO: ${photo}
 `;
 
 }).join("\n\n--------------------\n\n");
-
 
 const orderData={
 
@@ -1840,7 +1823,6 @@ date:new Date().toLocaleString()
 
 };
 
-
 const button=
 document.getElementById("placeOrderButton");
 
@@ -1852,7 +1834,6 @@ lang==="en"
 "PLACING ORDER..."
 :
 "იგზავნება...";
-
 
 try{
 
@@ -1873,23 +1854,14 @@ body:JSON.stringify(orderData)
 }
 );
 
-
 if(response.ok){
 
 closeCheckout();
-
-
-/*
-აქ უკვე გადავცემთ შეკვეთილ პროდუქტებს
-და მათი ფოტოები პირდაპირ გამოჩნდება
-success ფანჯარაში.
-*/
 
 showOrderSuccess(
 name,
 orderedProducts
 );
-
 
 cart=[];
 
@@ -1900,7 +1872,6 @@ renderCart();
 document
 .getElementById("nnh9bt")
 .reset();
-
 
 }else{
 
@@ -1913,7 +1884,6 @@ lang==="en"
 );
 
 }
-
 
 }catch(error){
 
@@ -1929,14 +1899,12 @@ lang==="en"
 
 }
 
-
 button.disabled=false;
 
 button.textContent=
 text[lang].placeOrder;
 
 }
-
 
 /* =========================
 SUCCESS MODAL
@@ -1952,7 +1920,6 @@ document.getElementById("successProducts");
 
 productsContainer.innerHTML="";
 
-
 orderedProducts.forEach(item=>{
 
 const product=item.product;
@@ -1961,7 +1928,6 @@ const div=
 document.createElement("div");
 
 div.className="success-product";
-
 
 div.innerHTML=`
 
@@ -1977,6 +1943,10 @@ ${product.brand} — ${product.name}
 </strong>
 
 <span>
+PRODUCT CODE: ${product.code}
+</span>
+
+<span>
 ${text[lang].size}: ${item.size}
 </span>
 
@@ -1988,11 +1958,9 @@ ${product.price} GEL
 
 `;
 
-
 productsContainer.appendChild(div);
 
 });
-
 
 document.getElementById("successText").textContent=
 
@@ -2006,7 +1974,6 @@ lang==="en"
 
 `გმადლობთ, ${name}! თქვენი შეკვეთა წარმატებით გაიგზავნა.`;
 
-
 document.getElementById("successOrder").textContent=
 
 lang==="en"
@@ -2019,13 +1986,11 @@ lang==="en"
 
 "ELKE STUDIO მალე დაგიკავშირდებათ.";
 
-
 document
 .getElementById("successOverlay")
 .classList.add("show");
 
 }
-
 
 /* =========================
 CLOSE SUCCESS
@@ -2038,7 +2003,6 @@ document
 .classList.remove("show");
 
 }
-
 
 /* =========================
 WISHLIST
@@ -2063,7 +2027,6 @@ renderProducts(currentList);
 
 }
 
-
 /* =========================
 SCROLL SHOP
 ========================= */
@@ -2078,7 +2041,6 @@ behavior:"smooth"
 
 }
 
-
 /* =========================
 START
 ========================= */
@@ -2090,3 +2052,4 @@ updateCartCount();
 </script>
 
 </body>
+</html>
