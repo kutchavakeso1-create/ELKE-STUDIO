@@ -374,6 +374,36 @@ font-size:13px;
 color:#777;
 }
 
+/* PAGINATION */
+
+.pagination{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:18px;
+margin-top:55px;
+}
+
+.pagination button{
+border:0;
+background:none;
+font-size:12px;
+font-family:"Inter","Noto Sans Georgian",sans-serif;
+color:#888;
+padding:5px;
+min-width:20px;
+transition:.2s;
+}
+
+.pagination button:hover{
+color:#151515;
+}
+
+.pagination button.active{
+color:#151515;
+font-weight:500;
+}
+
 /* EDITORIAL */
 
 .editorial{
@@ -1205,6 +1235,13 @@ footer{
 padding:55px 20px;
 }
 
+/* PAGINATION MOBILE */
+
+.pagination{
+gap:14px;
+margin-top:45px;
+}
+
 }
 
 /* GEORGIAN */
@@ -1239,6 +1276,7 @@ letter-spacing:0;
 </div>
 
 <div class="nav-actions">
+
 <button class="nav-action" onclick="openWishlist()">
 ♡ <span id="wishlistLabel">WISHLIST</span>
 </button>
@@ -1249,8 +1287,8 @@ letter-spacing:0;
 </button>
 
 <button class="lang" onclick="toggleLanguage()" id="langButton">KA</button>
-</div>
 
+</div>
 </nav>
 </header>
 
@@ -1277,7 +1315,6 @@ Curated fashion, timeless silhouettes and pieces chosen for an effortless wardro
 </button>
 
 </div>
-
 </section>
 
 <section class="intro">
@@ -1303,6 +1340,7 @@ ELKE STUDIO is an independent fashion space focused on carefully selected pieces
 </div>
 
 <div class="search-wrap">
+
 <input
 class="search-input"
 id="searchInput"
@@ -1310,33 +1348,56 @@ type="text"
 placeholder="Search..."
 oninput="renderProducts()"
 >
+
 </div>
 
 <div class="filters">
 
-<button class="filter active" onclick="setFilter('all',this)" id="filterAll">
+<button
+class="filter active"
+onclick="setFilter('all',this)"
+id="filterAll"
+>
 ALL
 </button>
 
-<button class="filter" onclick="setFilter('clothing',this)" id="filterClothing">
+<button
+class="filter"
+onclick="setFilter('clothing',this)"
+id="filterClothing"
+>
 CLOTHING
 </button>
 
-<button class="filter" onclick="setFilter('bags',this)" id="filterBags">
+<button
+class="filter"
+onclick="setFilter('bags',this)"
+id="filterBags"
+>
 BAGS
 </button>
 
-<button class="filter" onclick="setFilter('shoes',this)" id="filterShoes">
+<button
+class="filter"
+onclick="setFilter('shoes',this)"
+id="filterShoes"
+>
 SHOES
 </button>
 
-<button class="filter" onclick="setFilter('accessories',this)" id="filterAccessories">
+<button
+class="filter"
+onclick="setFilter('accessories',this)"
+id="filterAccessories"
+>
 ACCESSORIES
 </button>
 
 </div>
 
 <div class="products" id="products"></div>
+
+<div class="pagination" id="pagination"></div>
 
 </section>
 
@@ -1349,23 +1410,44 @@ ACCESSORIES
 <div class="editorial-grid">
 
 <div class="editorial-card">
-<img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1200&q=85">
+
+<img
+src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1200&q=85"
+>
+
 <div class="editorial-text">
-<span id="newEdit">THE NEW EDIT</span>
-<h3 id="lessBetter">Less, but better.</h3>
+
+<span id="newEdit">
+THE NEW EDIT
+</span>
+
+<h3 id="lessBetter">
+Less, but better.
+</h3>
+
 </div>
 </div>
 
 <div class="editorial-card">
-<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=85">
+
+<img
+src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=85"
+>
+
 <div class="editorial-text">
-<span id="styleNote">STYLE NOTE</span>
-<h3 id="quietConfidence">Quiet confidence.</h3>
+
+<span id="styleNote">
+STYLE NOTE
+</span>
+
+<h3 id="quietConfidence">
+Quiet confidence.
+</h3>
+
 </div>
 </div>
 
 </div>
-
 </section>
 
 <section class="brands" id="brands">
@@ -1375,6 +1457,7 @@ ACCESSORIES
 </div>
 
 <div class="brands-grid">
+
 <div class="brand-box">GANNI</div>
 <div class="brand-box">7 For All Mankind</div>
 <div class="brand-box">AIM</div>
@@ -1383,8 +1466,8 @@ ACCESSORIES
 <div class="brand-box">ELKE</div>
 <div class="brand-box">GANNI</div>
 <div class="brand-box">7 For All Mankind</div>
-</div>
 
+</div>
 </section>
 
 <section class="newsletter">
@@ -1397,7 +1480,10 @@ Stay in the know.
 New arrivals, editorials and selected pieces — straight to your inbox.
 </p>
 
-<form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+<form
+class="newsletter-form"
+onsubmit="subscribeNewsletter(event)"
+>
 
 <input
 type="email"
@@ -1406,7 +1492,10 @@ placeholder="Your email address"
 required
 >
 
-<button type="submit" id="subscribeButton">
+<button
+type="submit"
+id="subscribeButton"
+>
 SUBSCRIBE
 </button>
 
@@ -1421,29 +1510,53 @@ SUBSCRIBE
 <div class="footer-inner">
 
 <div>
-<div class="footer-logo">ELKE STUDIO</div>
 
-<p class="footer-description" id="footerDescription">
+<div class="footer-logo">
+ELKE STUDIO
+</div>
+
+<p
+class="footer-description"
+id="footerDescription"
+>
 Independent fashion studio based on timeless style, quiet luxury and carefully selected pieces.
 </p>
-</div>
-
-<div class="footer-column">
-
-<h4 id="aboutTitle">ABOUT</h4>
-
-<a href="#shop" id="aboutLink">About</a>
-<a href="#editorial" id="contactLink">Contact</a>
 
 </div>
 
 <div class="footer-column">
 
-<h4>ELKE</h4>
+<h4 id="aboutTitle">
+ABOUT
+</h4>
 
-<a href="#shop">Shop</a>
-<a href="#brands">Brands</a>
-<a href="#editorial">Editorial</a>
+<a href="#shop" id="aboutLink">
+About
+</a>
+
+<a href="#editorial" id="contactLink">
+Contact
+</a>
+
+</div>
+
+<div class="footer-column">
+
+<h4>
+ELKE
+</h4>
+
+<a href="#shop">
+Shop
+</a>
+
+<a href="#brands">
+Brands
+</a>
+
+<a href="#editorial">
+Editorial
+</a>
 
 </div>
 
@@ -1457,38 +1570,71 @@ Independent fashion studio based on timeless style, quiet luxury and carefully s
 
 <div class="modal-box detail-box">
 
-<button class="close" onclick="closeProduct()">×</button>
+<button
+class="close"
+onclick="closeProduct()"
+>
+×
+</button>
 
 <div class="detail-images">
 
-<img id="detailMainImage" class="detail-main">
+<img
+id="detailMainImage"
+class="detail-main"
+>
 
-<div class="thumbnails" id="detailThumbnails"></div>
+<div
+class="thumbnails"
+id="detailThumbnails"
+></div>
 
 </div>
 
 <div class="detail-info">
 
-<div class="detail-brand" id="detailBrand"></div>
+<div
+class="detail-brand"
+id="detailBrand"
+></div>
 
-<div class="detail-name" id="detailName"></div>
+<div
+class="detail-name"
+id="detailName"
+></div>
 
-<div class="detail-code" id="detailCode"></div>
+<div
+class="detail-code"
+id="detailCode"
+></div>
 
-<div class="detail-price" id="detailPrice"></div>
+<div
+class="detail-price"
+id="detailPrice"
+></div>
 
-<div class="size-label" id="sizeLabel">SIZE</div>
+<div
+class="size-label"
+id="sizeLabel"
+>
+SIZE
+</div>
 
-<div class="sizes" id="detailSizes"></div>
+<div
+class="sizes"
+id="detailSizes"
+></div>
 
-<button class="add-button" onclick="addSelectedToCart()" id="addButton">
+<button
+class="add-button"
+onclick="addSelectedToCart()"
+id="addButton"
+>
 ADD TO BAG
 </button>
 
 </div>
-
 </div>
-
 </div>
 
 <!-- CART MODAL -->
@@ -1497,25 +1643,46 @@ ADD TO BAG
 
 <div class="modal-box cart-box">
 
-<button class="close" onclick="closeCart()">×</button>
+<button
+class="close"
+onclick="closeCart()"
+>
+×
+</button>
 
-<div class="cart-title" id="cartTitle">
+<div
+class="cart-title"
+id="cartTitle"
+>
 Your Bag
 </div>
 
-<div class="cart-items" id="cartItems"></div>
+<div
+class="cart-items"
+id="cartItems"
+></div>
 
 <div class="cart-total">
-<span id="totalLabel">TOTAL</span>
-<strong id="cartTotal">0 GEL</strong>
+
+<span id="totalLabel">
+TOTAL
+</span>
+
+<strong id="cartTotal">
+0 GEL
+</strong>
+
 </div>
 
-<button class="checkout-button" onclick="openCheckout()" id="checkoutButton">
+<button
+class="checkout-button"
+onclick="openCheckout()"
+id="checkoutButton"
+>
 CHECKOUT
 </button>
 
 </div>
-
 </div>
 
 <!-- WISHLIST MODAL -->
@@ -1524,16 +1691,26 @@ CHECKOUT
 
 <div class="modal-box wishlist-box">
 
-<button class="close" onclick="closeWishlist()">×</button>
+<button
+class="close"
+onclick="closeWishlist()"
+>
+×
+</button>
 
-<div class="wishlist-title" id="wishlistTitle">
+<div
+class="wishlist-title"
+id="wishlistTitle"
+>
 Wishlist
 </div>
 
-<div class="wishlist-items" id="wishlistItems"></div>
+<div
+class="wishlist-items"
+id="wishlistItems"
+></div>
 
 </div>
-
 </div>
 
 <!-- CHECKOUT MODAL -->
@@ -1542,13 +1719,24 @@ Wishlist
 
 <div class="modal-box checkout-box">
 
-<button class="close" onclick="closeCheckout()">×</button>
+<button
+class="close"
+onclick="closeCheckout()"
+>
+×
+</button>
 
-<div class="checkout-title" id="checkoutTitle">
+<div
+class="checkout-title"
+id="checkoutTitle"
+>
 Checkout
 </div>
 
-<form class="checkout-form" onsubmit="placeOrder(event)">
+<form
+class="checkout-form"
+onsubmit="placeOrder(event)"
+>
 
 <input
 id="nameInput"
@@ -1581,20 +1769,27 @@ PLACE ORDER
 </form>
 
 </div>
-
 </div>
 
 <!-- SUCCESS -->
 
-<div class="success-overlay" id="successModal">
+<div
+class="success-overlay"
+id="successModal"
+>
 
 <div class="success-box">
 
-<h2>Thank you.</h2>
+<h2>
+Thank you.
+</h2>
 
 <p id="successText"></p>
 
-<div class="success-products" id="successProducts"></div>
+<div
+class="success-products"
+id="successProducts"
+></div>
 
 <button
 class="success-close"
@@ -1604,7 +1799,6 @@ OK
 </button>
 
 </div>
-
 </div>
 
 <script>
@@ -1816,6 +2010,58 @@ images:[
 "https://i.ibb.co/5hP68bSS/IMG-9827.jpg",
 "https://i.ibb.co/gXhKkgz/IMG-9828.jpg"
 ]
+},
+
+{
+id:7,
+code:"1016",
+brand:"zadig&voltair",
+name:"Denim jacket Kase Coton Twill",
+price:350,
+category:"clothing",
+sizes:["XS","S","M","L"],
+available:["XS","S","M","L"],
+images:[
+"https://i.ibb.co/gLQGB21B/IMG-9838.jpg",
+"https://i.ibb.co/5xBg8FHz/IMG-9839.jpg",
+"https://i.ibb.co/HpTXDCLy/IMG-9840.jpg",
+"https://i.ibb.co/BHR21NY0/IMG-9841.jpg",
+"https://i.ibb.co/wrdB8WdC/IMG-9837.jpg"
+]
+},
+
+{
+id:8,
+code:"1017",
+brand:"alexander mcqueen",
+name:"Denim jacket",
+price:1250,
+category:"clothing",
+sizes:["30","32","34","36","38","40","EU","42","44"],
+available:["30","32","34","36","38","40","EU"],
+images:[
+"https://i.ibb.co/WW0z2Nxf/IMG-9843.jpg",
+"https://i.ibb.co/bRzVkdZW/IMG-9844.jpg",
+"https://i.ibb.co/rf1Sm2Mr/IMG-9845.jpg",
+"https://i.ibb.co/Y7RWrW7J/IMG-9848.jpg",
+"https://i.ibb.co/CsbDphcT/IMG-9842.jpg",
+"https://i.ibb.co/fGBNK9KR/IMG-9847.jpg"
+]
+},
+
+{
+id:9,
+code:"1018",
+brand:"Marc cain",
+name:"Puffer jacket",
+price:695,
+category:"clothing",
+sizes:["38","40","42","44","46","36"],
+available:["38","40","42","44","46"],
+images:[
+"https://i.ibb.co/q3sYgsMD/IMG-9849.jpg",
+"https://i.ibb.co/v4jBjRMc/IMG-9850.jpg"
+]
 }
 
 ];
@@ -1829,6 +2075,10 @@ let selectedProduct=null;
 let selectedSize=null;
 let cart=[];
 let wishlist=[];
+
+const PRODUCTS_PER_PAGE=8;
+let currentPage=1;
+let lastProductViewKey="";
 
 /* =========================
 LANGUAGE
@@ -1893,7 +2143,8 @@ document.getElementById("placeOrderButton").textContent=t.place;
 
 document.getElementById("wishlistLabel").textContent=t.wishlist.toUpperCase();
 
-document.getElementById("langButton").textContent=lang==="en"?"KA":"EN";
+document.getElementById("langButton").textContent=
+lang==="en"?"KA":"EN";
 
 document.querySelectorAll(".nav-links a").forEach(a=>{
 a.textContent=a.dataset[lang];
@@ -1925,11 +2176,21 @@ PRODUCT RENDER
 function renderProducts(){
 
 const container=document.getElementById("products");
+const pagination=document.getElementById("pagination");
 
 const search=
 document.getElementById("searchInput").value
 .trim()
 .toLowerCase();
+
+const viewKey=currentFilter+"|"+search;
+
+if(viewKey!==lastProductViewKey){
+
+currentPage=1;
+lastProductViewKey=viewKey;
+
+}
 
 let filtered=products.filter(product=>{
 
@@ -1948,6 +2209,7 @@ return categoryMatch && searchMatch;
 });
 
 container.innerHTML="";
+pagination.innerHTML="";
 
 if(filtered.length===0){
 
@@ -1962,7 +2224,34 @@ return;
 
 }
 
-filtered.forEach(product=>{
+/* =========================
+PAGINATION CALCULATION
+========================= */
+
+const totalPages=Math.ceil(
+filtered.length/PRODUCTS_PER_PAGE
+);
+
+if(currentPage>totalPages){
+
+currentPage=totalPages;
+
+}
+
+const startIndex=
+(currentPage-1)*PRODUCTS_PER_PAGE;
+
+const endIndex=
+startIndex+PRODUCTS_PER_PAGE;
+
+const pageProducts=
+filtered.slice(startIndex,endIndex);
+
+/* =========================
+PRODUCT CARDS
+========================= */
+
+pageProducts.forEach(product=>{
 
 const isFav=wishlist.includes(product.id);
 
@@ -2017,6 +2306,46 @@ container.appendChild(card);
 
 });
 
+/* =========================
+PAGINATION BUTTONS
+========================= */
+
+if(totalPages<=1){
+
+return;
+
+}
+
+for(let page=1;page<=totalPages;page++){
+
+const button=document.createElement("button");
+
+button.textContent=page;
+
+if(page===currentPage){
+
+button.classList.add("active");
+
+}
+
+button.onclick=()=>{
+
+currentPage=page;
+
+renderProducts();
+
+document.getElementById("shop")
+.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+};
+
+pagination.appendChild(button);
+
+}
+
 }
 
 /* =========================
@@ -2026,6 +2355,8 @@ FILTER
 function setFilter(filter,button){
 
 currentFilter=filter;
+
+currentPage=1;
 
 document.querySelectorAll(".filter")
 .forEach(x=>x.classList.remove("active"));
@@ -2048,13 +2379,15 @@ selectedSize=null;
 
 renderDetail();
 
-document.getElementById("productModal").classList.add("show");
+document.getElementById("productModal")
+.classList.add("show");
 
 }
 
 function closeProduct(){
 
-document.getElementById("productModal").classList.remove("show");
+document.getElementById("productModal")
+.classList.remove("show");
 
 }
 
@@ -2064,11 +2397,14 @@ if(!selectedProduct)return;
 
 const product=selectedProduct;
 
-document.getElementById("detailMainImage").src=product.images[0];
+document.getElementById("detailMainImage").src=
+product.images[0];
 
-document.getElementById("detailBrand").textContent=product.brand;
+document.getElementById("detailBrand").textContent=
+product.brand;
 
-document.getElementById("detailName").textContent=product.name;
+document.getElementById("detailName").textContent=
+product.name;
 
 document.getElementById("detailCode").textContent=
 "PRODUCT CODE: "+product.code;
@@ -2076,7 +2412,8 @@ document.getElementById("detailCode").textContent=
 document.getElementById("detailPrice").textContent=
 product.price+" GEL";
 
-const thumbs=document.getElementById("detailThumbnails");
+const thumbs=
+document.getElementById("detailThumbnails");
 
 thumbs.innerHTML="";
 
@@ -2086,11 +2423,13 @@ const img=document.createElement("img");
 
 img.src=image;
 
-img.className="thumbnail"+(index===0?" active":"");
+img.className=
+"thumbnail"+(index===0?" active":"");
 
 img.onclick=()=>{
 
-document.getElementById("detailMainImage").src=image;
+document.getElementById("detailMainImage").src=
+image;
 
 document.querySelectorAll(".thumbnail")
 .forEach(x=>x.classList.remove("active"));
@@ -2103,7 +2442,8 @@ thumbs.appendChild(img);
 
 });
 
-const sizes=document.getElementById("detailSizes");
+const sizes=
+document.getElementById("detailSizes");
 
 sizes.innerHTML="";
 
@@ -2171,7 +2511,8 @@ id:selectedProduct.id,
 size:selectedSize
 });
 
-document.getElementById("cartCount").textContent=cart.length;
+document.getElementById("cartCount").textContent=
+cart.length;
 
 renderCart();
 
@@ -2189,26 +2530,24 @@ function openCart(){
 
 renderCart();
 
-document.getElementById("cartModal").classList.add("show");
+document.getElementById("cartModal")
+.classList.add("show");
 
 }
 
 function closeCart(){
 
-document.getElementById("cartModal").classList.remove("show");
+document.getElementById("cartModal")
+.classList.remove("show");
 
 }
-
-/*
-IMPORTANT:
-This function is what makes the BAG remove button work.
-*/
 
 function removeFromCart(index){
 
 cart.splice(index,1);
 
-document.getElementById("cartCount").textContent=cart.length;
+document.getElementById("cartCount").textContent=
+cart.length;
 
 renderCart();
 
@@ -2216,7 +2555,8 @@ renderCart();
 
 function renderCart(){
 
-const container=document.getElementById("cartItems");
+const container=
+document.getElementById("cartItems");
 
 container.innerHTML="";
 
@@ -2236,9 +2576,11 @@ lang==="ka"
 
 `;
 
-document.getElementById("cartTotal").textContent="0 GEL";
+document.getElementById("cartTotal")
+.textContent="0 GEL";
 
-document.getElementById("cartCount").textContent="0";
+document.getElementById("cartCount")
+.textContent="0";
 
 return;
 
@@ -2248,7 +2590,8 @@ let total=0;
 
 cart.forEach((item,index)=>{
 
-const product=products.find(p=>p.id===item.id);
+const product=
+products.find(p=>p.id===item.id);
 
 if(!product)return;
 
@@ -2304,11 +2647,11 @@ container.appendChild(div);
 
 });
 
-document.getElementById("cartTotal").textContent=
-total+" GEL";
+document.getElementById("cartTotal")
+.textContent=total+" GEL";
 
-document.getElementById("cartCount").textContent=
-cart.length;
+document.getElementById("cartCount")
+.textContent=cart.length;
 
 }
 
@@ -2331,7 +2674,6 @@ wishlist.splice(index,1);
 }
 
 renderProducts();
-
 renderWishlist();
 
 }
@@ -2340,19 +2682,22 @@ function openWishlist(){
 
 renderWishlist();
 
-document.getElementById("wishlistModal").classList.add("show");
+document.getElementById("wishlistModal")
+.classList.add("show");
 
 }
 
 function closeWishlist(){
 
-document.getElementById("wishlistModal").classList.remove("show");
+document.getElementById("wishlistModal")
+.classList.remove("show");
 
 }
 
 function renderWishlist(){
 
-const container=document.getElementById("wishlistItems");
+const container=
+document.getElementById("wishlistItems");
 
 container.innerHTML="";
 
@@ -2378,7 +2723,8 @@ return;
 
 wishlist.forEach(id=>{
 
-const product=products.find(p=>p.id===id);
+const product=
+products.find(p=>p.id===id);
 
 if(!product)return;
 
@@ -2454,13 +2800,15 @@ return;
 
 closeCart();
 
-document.getElementById("checkoutModal").classList.add("show");
+document.getElementById("checkoutModal")
+.classList.add("show");
 
 }
 
 function closeCheckout(){
 
-document.getElementById("checkoutModal").classList.remove("show");
+document.getElementById("checkoutModal")
+.classList.remove("show");
 
 }
 
@@ -2486,15 +2834,23 @@ return;
 
 }
 
-const name=document.getElementById("nameInput").value.trim();
+const name=
+document.getElementById("nameInput")
+.value.trim();
 
-const phone=document.getElementById("phoneInput").value.trim();
+const phone=
+document.getElementById("phoneInput")
+.value.trim();
 
-const address=document.getElementById("addressInput").value.trim();
+const address=
+document.getElementById("addressInput")
+.value.trim();
 
-const orderedProducts=cart.map(item=>{
+const orderedProducts=
+cart.map(item=>{
 
-const product=products.find(p=>p.id===item.id);
+const product=
+products.find(p=>p.id===item.id);
 
 return{
 product:product,
@@ -2503,7 +2859,8 @@ size:item.size
 
 });
 
-const orderItems=orderedProducts.map(item=>{
+const orderItems=
+orderedProducts.map(item=>{
 
 const product=item.product;
 
@@ -2516,15 +2873,18 @@ Price: ${product.price} GEL
 
 }).join("\n--------------------\n");
 
-const total=cart.reduce((sum,item)=>{
+const total=
+cart.reduce((sum,item)=>{
 
-const product=products.find(p=>p.id===item.id);
+const product=
+products.find(p=>p.id===item.id);
 
 return sum+product.price;
 
 },0);
 
-const button=document.getElementById("placeOrderButton");
+const button=
+document.getElementById("placeOrderButton");
 
 button.disabled=true;
 
@@ -2566,7 +2926,8 @@ orderedProducts
 
 cart=[];
 
-document.getElementById("cartCount").textContent="0";
+document.getElementById("cartCount")
+.textContent="0";
 
 renderCart();
 
@@ -2604,7 +2965,10 @@ button.textContent=text[lang].place;
 SUCCESS
 ========================= */
 
-function showOrderSuccess(name,orderedProducts){
+function showOrderSuccess(
+name,
+orderedProducts
+){
 
 const codes=
 orderedProducts
@@ -2618,22 +2982,26 @@ orderedProducts
 )
 .join("<br>");
 
-document.getElementById("successText").innerHTML=
+document.getElementById("successText")
+.innerHTML=
 
 lang==="ka"
 ?`${name}, შენი შეკვეთა წარმატებით გაიგზავნა.`
 :`${name}, your order has been successfully placed.`;
 
-document.getElementById("successProducts").innerHTML=
+document.getElementById("successProducts")
+.innerHTML=
 `${names}<br><br>PRODUCT CODE: ${codes}`;
 
-document.getElementById("successModal").classList.add("show");
+document.getElementById("successModal")
+.classList.add("show");
 
 }
 
 function closeSuccess(){
 
-document.getElementById("successModal").classList.remove("show");
+document.getElementById("successModal")
+.classList.remove("show");
 
 }
 
@@ -2645,16 +3013,19 @@ function subscribeNewsletter(event){
 
 event.preventDefault();
 
-const email=document.getElementById("newsletterEmail").value;
+const email=
+document.getElementById("newsletterEmail").value;
 
 if(email){
 
 alert(
 lang==="ka"
-?"მადლობა გამოწერისთვის.":"Thank you for subscribing."
+?"მადლობა გამოწერისთვის."
+:"Thank you for subscribing."
 );
 
-document.getElementById("newsletterEmail").value="";
+document.getElementById("newsletterEmail")
+.value="";
 
 }
 
