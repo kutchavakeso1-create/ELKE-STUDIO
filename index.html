@@ -8,7 +8,7 @@
 <title>ELKE STUDIO</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Noto+Sans+Georgian:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -43,6 +43,10 @@ font-family:inherit;
 
 button{
 cursor:pointer;
+}
+
+button:disabled{
+cursor:not-allowed;
 }
 
 a{
@@ -520,16 +524,11 @@ position:relative;
 position:absolute;
 right:20px;
 top:15px;
+z-index:10;
 border:0;
 background:none;
 font-size:27px;
-}
-
-.modal-title{
-font-family:"Cormorant Garamond",serif;
-font-size:40px;
-font-weight:400;
-margin-bottom:25px;
+line-height:1;
 }
 
 /* PRODUCT DETAIL */
@@ -552,12 +551,14 @@ gap:35px;
 .detail-main{
 aspect-ratio:3/4;
 overflow:hidden;
+background:#e8e5df;
 }
 
 .detail-main img{
 width:100%;
 height:100%;
 object-fit:cover;
+display:block;
 }
 
 .thumbnails{
@@ -571,20 +572,26 @@ margin-top:8px;
 aspect-ratio:1;
 overflow:hidden;
 border:1px solid transparent;
+cursor:pointer;
+background:#e8e5df;
 }
 
 .thumbnail.active{
-border-color:#111;
+border:1px solid #111;
 }
 
 .thumbnail img{
 width:100%;
 height:100%;
 object-fit:cover;
+display:block;
 }
 
 .detail-info{
 padding:35px 15px;
+display:flex;
+flex-direction:column;
+justify-content:center;
 }
 
 .detail-brand{
@@ -598,6 +605,7 @@ margin-bottom:10px;
 font-family:"Cormorant Garamond",serif;
 font-size:48px;
 font-weight:400;
+line-height:1;
 margin-bottom:15px;
 }
 
@@ -631,11 +639,17 @@ min-width:48px;
 height:42px;
 border:1px solid #bbb;
 background:transparent;
+font-size:11px;
+}
+
+.sizes button:hover:not(:disabled){
+border-color:#111;
 }
 
 .sizes button.selected{
 background:#111;
 color:white;
+border-color:#111;
 }
 
 .sizes button.unavailable{
@@ -652,6 +666,15 @@ color:white;
 border:0;
 letter-spacing:2px;
 font-size:10px;
+transition:.2s;
+}
+
+.add-cart:hover{
+opacity:.8;
+}
+
+.add-cart:disabled{
+background:#999;
 }
 
 /* CART */
@@ -932,9 +955,56 @@ grid-template-columns:1fr 1fr;
 grid-template-columns:1fr;
 }
 
+.detail-info{
+padding:25px 5px 10px;
+}
+
+.detail-name{
+font-size:42px;
+}
+
 }
 
 @media(max-width:500px){
+
+.modal{
+padding:10px;
+}
+
+.detail-box{
+padding:15px;
+max-height:96vh;
+}
+
+.detail-main{
+aspect-ratio:3/4;
+}
+
+.thumbnails{
+grid-template-columns:repeat(5,1fr);
+gap:5px;
+}
+
+.detail-info{
+padding:25px 0 5px;
+}
+
+.detail-name{
+font-size:38px;
+}
+
+.detail-code{
+margin-bottom:22px;
+}
+
+.sizes{
+margin-bottom:22px;
+}
+
+.sizes button{
+min-width:44px;
+height:40px;
+}
 
 .hero h1{
 font-size:52px;
@@ -965,6 +1035,48 @@ padding:14px;
 grid-template-columns:1fr;
 }
 
+.cart-item{
+gap:10px;
+}
+
+.cart-item img{
+width:65px;
+height:85px;
+}
+
+.modal-box{
+padding:25px 20px;
+}
+
+}
+
+/* VERY SMALL PHONES */
+
+@media(max-width:360px){
+
+.nav-actions{
+gap:8px;
+}
+
+.nav-btn{
+font-size:10px;
+}
+
+.nav-links{
+font-size:9px;
+gap:12px;
+}
+
+.detail-name{
+font-size:34px;
+}
+
+}
+
+/* SCROLL LOCK */
+
+body.modal-open{
+overflow:hidden;
 }
 
 </style>
@@ -983,9 +1095,7 @@ ELKE
 <nav class="nav-links">
 
 <a href="#shop" id="navShop">SHOP</a>
-
 <a href="#brands" id="navBrands">BRANDS</a>
-
 <a href="#editorial" id="navEditorial">EDITORIAL</a>
 
 </nav>
@@ -1282,6 +1392,7 @@ quiet luxury and carefully selected pieces.
 
 </footer>
 
+
 <!-- PRODUCT DETAIL -->
 
 <div class="modal" id="detailModal">
@@ -1295,7 +1406,7 @@ quiet luxury and carefully selected pieces.
 <div>
 
 <div class="detail-main">
-<img id="detailMainImage">
+<img id="detailMainImage" alt="">
 </div>
 
 <div class="thumbnails" id="thumbnails"></div>
@@ -1334,6 +1445,7 @@ ADD TO BAG
 
 </div>
 
+
 <!-- CART -->
 
 <div class="modal" id="cartModal">
@@ -1368,6 +1480,7 @@ CHECKOUT
 
 </div>
 
+
 <!-- WISHLIST -->
 
 <div class="modal" id="wishlistModal">
@@ -1385,6 +1498,7 @@ Wishlist
 </div>
 
 </div>
+
 
 <!-- CHECKOUT -->
 
@@ -1433,6 +1547,7 @@ PLACE ORDER
 </div>
 
 </div>
+
 
 <script>
 
@@ -1553,6 +1668,7 @@ images:[
 
 ];
 
+
 /* =========================
 LANGUAGE
 ========================= */
@@ -1647,6 +1763,7 @@ place:"შეკვეთის განთავსება"
 
 };
 
+
 /* =========================
 STATE
 ========================= */
@@ -1656,6 +1773,7 @@ let wishlist=[];
 let currentProduct=null;
 let selectedSize=null;
 let currentList=[...products];
+
 
 /* =========================
 TRANSLATE
@@ -1743,6 +1861,7 @@ renderWishlist();
 
 }
 
+
 /* =========================
 LANGUAGE TOGGLE
 ========================= */
@@ -1754,6 +1873,7 @@ lang=lang==="en" ? "ka" : "en";
 translate();
 
 }
+
 
 /* =========================
 RENDER PRODUCTS
@@ -1809,7 +1929,10 @@ class="product-image"
 onclick="openProduct(${product.id})"
 >
 
-<img src="${product.images[0]}">
+<img
+src="${product.images[0]}"
+alt="${product.name}"
+>
 
 <button
 class="wish"
@@ -1854,6 +1977,7 @@ grid.appendChild(card);
 
 }
 
+
 /* =========================
 FILTER
 ========================= */
@@ -1882,6 +2006,7 @@ x=>x.category===category
 
 }
 
+
 /* =========================
 SEARCH
 ========================= */
@@ -1892,7 +2017,8 @@ const value=
 document
 .getElementById("searchInput")
 .value
-.toLowerCase();
+.toLowerCase()
+.trim();
 
 renderProducts(
 
@@ -1906,6 +2032,7 @@ p.code.includes(value)
 
 }
 
+
 /* =========================
 OPEN PRODUCT
 ========================= */
@@ -1915,21 +2042,36 @@ function openProduct(id){
 currentProduct=
 products.find(x=>x.id===id);
 
+if(!currentProduct){
+return;
+}
+
 selectedSize=null;
 
 const p=currentProduct;
 
 document.getElementById("detailBrand").textContent=p.brand;
+
 document.getElementById("detailName").textContent=p.name;
-document.getElementById("detailPrice").textContent=p.price+" GEL";
+
+document.getElementById("detailPrice").textContent=
+p.price+" GEL";
 
 document.getElementById("detailCode").textContent=
 "PRODUCT CODE: "+p.code;
 
-document.getElementById("detailMainImage").src=
-p.images[0];
+const mainImage=
+document.getElementById("detailMainImage");
 
-const thumbs=document.getElementById("thumbnails");
+mainImage.src=p.images[0];
+
+mainImage.alt=p.name;
+
+
+/* THUMBNAILS */
+
+const thumbs=
+document.getElementById("thumbnails");
 
 thumbs.innerHTML="";
 
@@ -1941,16 +2083,20 @@ div.className=
 "thumbnail"+
 (index===0 ? " active" : "");
 
-div.innerHTML=`<img src="${image}">`;
+div.innerHTML=`
+
+<img
+src="${image}"
+alt="${p.name}"
+>
+`;
 
 div.onclick=()=>{
 
-document.getElementById(
-"detailMainImage"
-).src=image;
+mainImage.src=image;
 
 document
-.querySelectorAll(".thumbnail")
+.querySelectorAll("#thumbnails .thumbnail")
 .forEach(x=>x.classList.remove("active"));
 
 div.classList.add("active");
@@ -1961,24 +2107,38 @@ thumbs.appendChild(div);
 
 });
 
-const sizes=document.getElementById("sizeButtons");
+
+/* SIZES */
+
+const sizes=
+document.getElementById("sizeButtons");
+
+const sizeLabel=
+document.getElementById("sizeLabel");
+
+const addButton=
+document.getElementById("addButton");
 
 sizes.innerHTML="";
 
-if(!p.sizes){
+selectedSize=null;
 
-document.getElementById("sizeLabel").style.display="none";
+if(!p.sizes || p.sizes.length===0){
+
+sizeLabel.style.display="none";
 sizes.style.display="none";
+addButton.disabled=false;
 
 }else{
 
-document.getElementById("sizeLabel").style.display="block";
+sizeLabel.style.display="block";
 sizes.style.display="flex";
 
 p.sizes.forEach(size=>{
 
 const button=document.createElement("button");
 
+button.type="button";
 button.textContent=size;
 
 if(!p.available.includes(size)){
@@ -2008,11 +2168,17 @@ sizes.appendChild(button);
 
 }
 
+
+/* OPEN MODAL */
+
 document
 .getElementById("detailModal")
 .classList.add("show");
 
+document.body.classList.add("modal-open");
+
 }
+
 
 /* =========================
 CLOSE PRODUCT
@@ -2024,7 +2190,13 @@ document
 .getElementById("detailModal")
 .classList.remove("show");
 
+document.body.classList.remove("modal-open");
+
+currentProduct=null;
+selectedSize=null;
+
 }
+
 
 /* =========================
 ADD TO CART
@@ -2032,9 +2204,13 @@ ADD TO CART
 
 function addToCart(){
 
+if(!currentProduct){
+return;
+}
+
 const p=currentProduct;
 
-if(p.sizes && !selectedSize){
+if(p.sizes && p.sizes.length>0 && !selectedSize){
 
 alert(
 lang==="ka"
@@ -2053,7 +2229,8 @@ id:p.id,
 size:selectedSize
 });
 
-document.getElementById("cartCount").textContent=cart.length;
+document.getElementById("cartCount").textContent=
+cart.length;
 
 closeDetail();
 
@@ -2069,6 +2246,7 @@ lang==="ka"
 
 }
 
+
 /* =========================
 CART
 ========================= */
@@ -2081,6 +2259,8 @@ document
 .getElementById("cartModal")
 .classList.add("show");
 
+document.body.classList.add("modal-open");
+
 }
 
 function closeCart(){
@@ -2088,6 +2268,8 @@ function closeCart(){
 document
 .getElementById("cartModal")
 .classList.remove("show");
+
+document.body.classList.remove("modal-open");
 
 }
 
@@ -2128,6 +2310,10 @@ cart.forEach((item,index)=>{
 const p=
 products.find(x=>x.id===item.id);
 
+if(!p){
+return;
+}
+
 total+=p.price;
 
 const div=document.createElement("div");
@@ -2136,7 +2322,10 @@ div.className="cart-item";
 
 div.innerHTML=`
 
-<img src="${p.images[0]}">
+<img
+src="${p.images[0]}"
+alt="${p.name}"
+>
 
 <div class="cart-info">
 
@@ -2188,15 +2377,20 @@ total+" GEL";
 
 }
 
+
+/* REMOVE FROM CART */
+
 function removeCart(index){
 
 cart.splice(index,1);
 
-document.getElementById("cartCount").textContent=cart.length;
+document.getElementById("cartCount").textContent=
+cart.length;
 
 renderCart();
 
 }
+
 
 /* =========================
 WISHLIST
@@ -2206,7 +2400,8 @@ function toggleWish(id){
 
 if(wishlist.includes(id)){
 
-wishlist=wishlist.filter(x=>x!==id);
+wishlist=
+wishlist.filter(x=>x!==id);
 
 }else{
 
@@ -2218,9 +2413,11 @@ document.getElementById("wishlistCount").textContent=
 wishlist.length;
 
 renderProducts(currentList);
+
 renderWishlist();
 
 }
+
 
 function openWishlist(){
 
@@ -2230,7 +2427,10 @@ document
 .getElementById("wishlistModal")
 .classList.add("show");
 
+document.body.classList.add("modal-open");
+
 }
+
 
 function closeWishlist(){
 
@@ -2238,11 +2438,15 @@ document
 .getElementById("wishlistModal")
 .classList.remove("show");
 
+document.body.classList.remove("modal-open");
+
 }
+
 
 function renderWishlist(){
 
-const box=document.getElementById("wishlistItems");
+const box=
+document.getElementById("wishlistItems");
 
 box.innerHTML="";
 
@@ -2270,7 +2474,12 @@ return;
 
 wishlist.forEach(id=>{
 
-const p=products.find(x=>x.id===id);
+const p=
+products.find(x=>x.id===id);
+
+if(!p){
+return;
+}
 
 const div=document.createElement("div");
 
@@ -2280,7 +2489,10 @@ div.innerHTML=`
 
 <div class="wish-item-info">
 
-<img src="${p.images[0]}">
+<img
+src="${p.images[0]}"
+alt="${p.name}"
+>
 
 <div>
 
@@ -2331,6 +2543,7 @@ box.appendChild(div);
 
 }
 
+
 /* =========================
 CHECKOUT
 ========================= */
@@ -2357,7 +2570,10 @@ document
 .getElementById("checkoutModal")
 .classList.add("show");
 
+document.body.classList.add("modal-open");
+
 }
+
 
 function closeCheckout(){
 
@@ -2365,7 +2581,10 @@ document
 .getElementById("checkoutModal")
 .classList.remove("show");
 
+document.body.classList.remove("modal-open");
+
 }
+
 
 /* =========================
 PLACE ORDER
@@ -2403,7 +2622,8 @@ const address=
 document.getElementById("addressInput")
 .value.trim();
 
-const orderedProducts=cart.map(item=>{
+const orderedProducts=
+cart.map(item=>{
 
 const product=
 products.find(p=>p.id===item.id);
@@ -2528,9 +2748,12 @@ lang==="ka"
 }
 
 button.disabled=false;
-button.textContent=text[lang].place;
+
+button.textContent=
+text[lang].place;
 
 }
+
 
 /* =========================
 SUCCESS
@@ -2541,13 +2764,17 @@ function showOrderSuccess(name,orderedProducts){
 const old=
 document.getElementById("orderSuccess");
 
-if(old) old.remove();
+if(old){
+old.remove();
+}
 
-const modal=document.createElement("div");
+const modal=
+document.createElement("div");
 
-const codes=orderedProducts.map(
-item=>item.product.code
-).join(", ");
+const codes=
+orderedProducts
+.map(item=>item.product.code)
+.join(", ");
 
 modal.id="orderSuccess";
 
@@ -2627,6 +2854,7 @@ document.body.appendChild(modal);
 
 }
 
+
 function closeOrderSuccess(){
 
 const modal=
@@ -2636,7 +2864,10 @@ if(modal){
 modal.remove();
 }
 
+document.body.classList.remove("modal-open");
+
 }
+
 
 /* =========================
 NEWSLETTER
@@ -2658,6 +2889,7 @@ event.target.reset();
 
 }
 
+
 /* =========================
 MODAL CLOSE
 ========================= */
@@ -2674,12 +2906,36 @@ if(e.target===modal){
 
 modal.classList.remove("show");
 
+document.body.classList.remove("modal-open");
+
 }
 
 }
 );
 
 });
+
+
+/* =========================
+ESC CLOSE
+========================= */
+
+document.addEventListener(
+"keydown",
+function(e){
+
+if(e.key==="Escape"){
+
+closeDetail();
+closeCart();
+closeWishlist();
+closeCheckout();
+
+}
+
+}
+);
+
 
 /* =========================
 START
@@ -2688,7 +2944,9 @@ START
 translate();
 
 renderProducts(products);
+
 renderCart();
+
 renderWishlist();
 
 </script>
